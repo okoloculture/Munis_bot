@@ -1,0 +1,104 @@
+# Канал-источник: откуда берём оптовые цены (публичный, читается через t.me/s/)
+source_channel: opt_uniseil
+
+# Канал-приёмник. target_chat_id уходит в Bot API.
+# target_channel — публичный username приёмника; нужен только для --seed
+# и для формирования публичных ссылок в навигации. У приватного канала его нет.
+target_chat_id: "-1004494948640"
+target_channel: null
+
+# Ступени наценки в рублях. up_to — верхняя граница цены включительно,
+# последняя ступень с up_to: null применяется ко всему остальному.
+markup_tiers:
+  - {up_to: 10000, add: 2000}
+  - {up_to: 15000, add: 3000}
+  - {up_to: 40000, add: 4000}
+  - {up_to: 80000, add: 5000}
+  - {up_to: 110000, add: 6000}
+  - {up_to: 135000, add: 7000}
+  - {up_to: 160000, add: 8000}
+  - {up_to: 185000, add: 9000}
+  - {up_to: null, add: 13000}
+
+# Шаблон товарной строки: {name} — название из опта, {price} — цена с наценкой
+price_format: "{name} — {price} ₽"
+
+# Округление итоговой цены вверх: 0 — не округлять, 100 — до сотен, 1000 — до тысяч
+round_to_nearest: 0
+
+# Интервал синхронизации в секундах (1 час)
+check_interval: 3600
+
+# Сколько страниц истории t.me/s/ пролистывать при поиске каталога (20 сообщений на страницу)
+max_scan_pages: 8
+
+# Категории и порядок их публикации. Названия — как в заголовках канала-источника.
+categories:
+  - Google
+  - Honor
+  - Huawei
+  - OnePlus
+  - Realme
+  - Xiaomi
+  - Samsung
+  - AirPods
+  - Watch SE \ S10 \ S11
+  - Ultra Watch
+  - iPhone 11 \ 12
+  - iPhone 13
+  - iPhone 14
+  - iPhone 15
+  - iPhone 16e \ 16
+  - iPhone 16 Plus
+  - iPhone 16 Pro
+  - iPhone 16 Pro Max
+  - iPhone 17e \ 17
+  - iPhone 17 Air
+  - iPhone 17 Pro
+  - iPhone 17 Pro Max
+  - iPad Air
+  - iPad Pro
+  - iPad Mini \ 10 \ 11
+  - MacBook Neo \ Air
+  - MacBook Pro
+
+# Чёрный список поверх categories
+deny_categories:
+  - iPhone (ASIS)
+
+# Бот сам создаёт недостающие сообщения. Обязательно для пустого канала.
+allow_create: true
+
+# Публиковать без звука
+disable_notification: true
+
+# Навигационное сообщение с кнопками на посты категорий
+nav:
+  enabled: true
+  text: "ВЫБЕРИТЕ НУЖНУЮ КАТЕГОРИЮ✅"
+  # Максимум кнопок в ряду и максимум символов подписей на ряд.
+  # Ряд закрывается по любому из двух пределов, поэтому длинные названия
+  # не сминаются короткими соседями.
+  columns: 3
+  row_width: 30
+  pin: true
+  # Стиль кнопок категорий: default (серая), primary (синяя), success, danger
+  button_style: default
+
+# Кнопка под каждым постом и внизу навигации
+order_button:
+  text: "ЗАКАЗАТЬ"
+  url: "https://t.me/m_unis98"
+  style: primary
+
+# Выгрузка всего прайса одним файлом .xlsx.
+# enabled — собирать файл; publish — заливать его в канал отдельным сообщением
+# и добавлять в навигацию кнопку со ссылкой. Сейчас файл только складывается
+# на диск, в канал ничего не уходит.
+excel:
+  enabled: true
+  publish: false
+  output_dir: "_excel"
+  filename: "Прайс_MUNIS_{date}.xlsx"
+  button_text: "Прайс EXCEL"
+  button_style: success

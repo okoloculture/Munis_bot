@@ -1,0 +1,13 @@
+.env
+*.session
+*.session-journal
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.bak
+_dryrun/
+_excel/
+
+# state.json НЕ игнорируется: его коммитит workflow, это память бота
+# о том, какие сообщения канала он ведёт.
