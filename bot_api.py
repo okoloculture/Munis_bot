@@ -216,6 +216,12 @@ class BotApi:
             payload["reply_markup"] = reply_markup
         return await self.call("sendMessage", payload)
 
+    async def delete_message(self, chat_id: str, message_id: int) -> dict | None:
+        return await self.call("deleteMessage", {
+            "chat_id": chat_id,
+            "message_id": message_id,
+        })
+
     async def pin_message(self, chat_id: str, message_id: int) -> dict | None:
         return await self.call("pinChatMessage", {
             "chat_id": chat_id,

@@ -6,7 +6,14 @@ from catalog import Category, CategoryPart
 from config import Config
 from markup import parse_tiers
 from state import CategorySlot, State
-from sync import build_excel, content_hash, is_allowed, planned_keys, render_category
+from sync import (
+    build_excel,
+    content_hash,
+    is_allowed,
+    planned_keys,
+    read_info_text,
+    render_category,
+)
 
 TIERS = parse_tiers([{"up_to": 80000, "add": 5000}, {"up_to": None, "add": 13000}])
 
@@ -33,6 +40,8 @@ def make_config(**overrides) -> Config:
         nav_pin=True,
         nav_button_style="default",
         order_button=None,
+        info_enabled=False,
+        info_file=Path("info.html"),
         excel_enabled=False,
         excel_publish=False,
         excel_output_dir=Path("_excel"),
@@ -147,3 +156,31 @@ def test_build_excel_returns_none_without_positions(tmp_path):
     cfg = make_config(categories=("Google",), excel_enabled=True, excel_output_dir=tmp_path)
     empty = make_category("Google", ["просто текст"])
     assert build_excel(cfg, State(), {"google": empty}) is None
+
+
+def test_read_info_text_disabled_returns_none(tmp_path):
+    path = tmp_path / "info.html"
+    path.write_text("<b>Привет</b>", encoding="utf-8")
+    assert read_info_text(make_config(info_file=path)) is None
+
+
+def test_read_info_text_reads_and_strips(tmp_path):
+    path = tmp_path / "info.html"
+    path.write_text("\n<b>Привет</b>\nТекст\n\n", encoding="utf-8")
+    cfg = make_config(info_enabled=True, info_file=path)
+    assert read_info_text(cfg) == "<b>Привет</b>\nТекст"
+
+
+def test_read_info_text_rejects_empty_and_oversized(tmp_path):
+    empty = tmp_path / "empty.html"
+    empty.write_text("   \n", encoding="utf-8")
+    assert read_info_text(make_config(info_enabled=True, info_file=empty)) is None
+
+    huge = tmp_path / "huge.html"
+    huge.write_text("я" * 5000, encoding="utf-8")
+    assert read_info_text(make_config(info_enabled=True, info_file=huge)) is None
+
+
+def test_read_info_text_survives_missing_file(tmp_path):
+    cfg = make_config(info_enabled=True, info_file=tmp_path / "нет.html")
+    assert read_info_text(cfg) is None

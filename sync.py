@@ -14,7 +14,7 @@ from catalog import Category, build_categories, normalize_key
 from config import Config
 from excel import build_caption, build_filename, build_workbook, collect_rows, rows_hash
 from nav import build_keyboard, make_button, message_link, render_text
-from renderer import build_messages, count_price_lines
+from renderer import TELEGRAM_MAX_LEN, build_messages, count_price_lines
 from state import CategorySlot, State, save_state
 from tme_scraper import fetch_messages
 
@@ -291,6 +291,87 @@ async def publish_excel(
     return True
 
 
+def read_info_text(cfg: Config) -> str | None:
+    """Прочитать текст информационного сообщения; None — если выключено или пусто."""
+    if not cfg.info_enabled:
+        return None
+    try:
+        text = cfg.info_file.read_text(encoding="utf-8").strip()
+    except OSError as exc:
+        log.error("Не удалось прочитать %s: %s", cfg.info_file, exc)
+        return None
+    if not text:
+        log.warning("Файл %s пуст — информационное сообщение пропущено", cfg.info_file)
+        return None
+    if len(text) > TELEGRAM_MAX_LEN:
+        log.error(
+            "Информационное сообщение длиннее %d символов (%d) — Telegram его не примет",
+            TELEGRAM_MAX_LEN, len(text),
+        )
+        return None
+    return text
+
+
+async def publish_info(api: BotApi, cfg: Config, state: State) -> bool:
+    """Создать или обновить информационное сообщение перед навигацией."""
+    text = read_info_text(cfg)
+    if text is None:
+        return False
+
+    new_hash = content_hash([text])
+    if state.info_message_id and state.info_hash == new_hash:
+        log.info("Информационное сообщение без изменений")
+        return False
+
+    if state.info_message_id:
+        result = await api.edit_message_text(cfg.target_chat_id, state.info_message_id, text)
+        if result is None:
+            log.warning(
+                "Не удалось обновить информационное сообщение (message_id=%s)",
+                state.info_message_id,
+            )
+            return False
+        state.info_hash = new_hash
+        log.info("Информационное сообщение обновлено (message_id=%s)", state.info_message_id)
+        return True
+
+    result = await api.send_message(
+        cfg.target_chat_id, text, disable_notification=cfg.disable_notification,
+    )
+    if result is None:
+        log.warning("Не удалось создать информационное сообщение")
+        return False
+
+    state.info_message_id = int(result["message_id"])
+    state.info_hash = new_hash
+    log.info("Информационное сообщение создано (message_id=%s)", state.info_message_id)
+    return True
+
+
+async def ensure_nav_is_last(api: BotApi, cfg: Config, state: State) -> bool:
+    """Навигация должна быть последним сообщением канала.
+
+    Сообщения нельзя переставлять, поэтому если информационное оказалось ниже
+    навигации, старую навигацию удаляем — publish_nav создаст её заново внизу.
+    """
+    if not (state.nav_message_id and state.info_message_id):
+        return False
+    if state.nav_message_id > state.info_message_id:
+        return False
+
+    if await api.delete_message(cfg.target_chat_id, state.nav_message_id) is None:
+        log.warning(
+            "Не удалось удалить старую навигацию (message_id=%s) — порядок сообщений "
+            "останется прежним", state.nav_message_id,
+        )
+        return False
+
+    log.info("Старая навигация удалена, будет пересоздана ниже информационного сообщения")
+    state.nav_message_id = None
+    state.nav_hash = None
+    return True
+
+
 async def publish_nav(api: BotApi, cfg: Config, state: State) -> bool:
     """Создать или обновить навигационное сообщение с кнопками."""
     if not cfg.nav_enabled:
@@ -402,6 +483,14 @@ async def sync_once(
             save_state(state, state_path)
     except Exception:
         log.exception("Сбой при выгрузке Excel")
+
+    try:
+        if await publish_info(api, cfg, state):
+            save_state(state, state_path)
+        if await ensure_nav_is_last(api, cfg, state):
+            save_state(state, state_path)
+    except Exception:
+        log.exception("Сбой при публикации информационного сообщения")
 
     try:
         await publish_nav(api, cfg, state)

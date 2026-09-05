@@ -1,9 +1,11 @@
 {
   "version": 1,
-  "nav_message_id": 45,
+  "nav_message_id": 49,
   "nav_hash": "f97211fddb9e47c49986a8983615fc49",
   "excel_message_id": null,
   "excel_hash": null,
+  "info_message_id": 48,
+  "info_hash": "f9b5e6f207f6052d566012df04931fbf",
   "slots": {
     "google": {
       "title": "Google",

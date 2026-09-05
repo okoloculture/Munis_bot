@@ -60,6 +60,8 @@ class Config:
     nav_pin: bool
     nav_button_style: str
     order_button: OrderButton | None
+    info_enabled: bool
+    info_file: Path
     excel_enabled: bool
     excel_publish: bool
     excel_output_dir: Path
@@ -158,6 +160,14 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
     if not isinstance(nav_raw, dict):
         raise ConfigError("'nav' должен быть словарём")
 
+    info_raw = raw.get("info_message") or {}
+    if not isinstance(info_raw, dict):
+        raise ConfigError("'info_message' должен быть словарём")
+    info_file = Path(str(info_raw.get("file") or "info.html"))
+    info_enabled = bool(info_raw.get("enabled", False))
+    if info_enabled and not info_file.exists():
+        raise ConfigError(f"Файл информационного сообщения не найден: {info_file}")
+
     excel_raw = raw.get("excel") or {}
     if not isinstance(excel_raw, dict):
         raise ConfigError("'excel' должен быть словарём")
@@ -210,6 +220,8 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
         nav_pin=bool(nav_raw.get("pin", True)),
         nav_button_style=nav_style,
         order_button=_parse_order_button(raw),
+        info_enabled=info_enabled,
+        info_file=info_file,
         excel_enabled=bool(excel_raw.get("enabled", False)),
         excel_publish=bool(excel_raw.get("publish", False)),
         excel_output_dir=excel_output_dir,

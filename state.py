@@ -32,6 +32,8 @@ class State:
     nav_hash: str | None = None
     excel_message_id: int | None = None
     excel_hash: str | None = None
+    info_message_id: int | None = None
+    info_hash: str | None = None
 
     def to_dict(self) -> dict:
         return {
@@ -40,6 +42,8 @@ class State:
             "nav_hash": self.nav_hash,
             "excel_message_id": self.excel_message_id,
             "excel_hash": self.excel_hash,
+            "info_message_id": self.info_message_id,
+            "info_hash": self.info_hash,
             "slots": {
                 key: {
                     "title": slot.title,
@@ -64,12 +68,15 @@ class State:
             )
         nav_id = raw.get("nav_message_id")
         excel_id = raw.get("excel_message_id")
+        info_id = raw.get("info_message_id")
         return cls(
             slots=slots,
             nav_message_id=int(nav_id) if isinstance(nav_id, int) else None,
             nav_hash=raw.get("nav_hash"),
             excel_message_id=int(excel_id) if isinstance(excel_id, int) else None,
             excel_hash=raw.get("excel_hash"),
+            info_message_id=int(info_id) if isinstance(info_id, int) else None,
+            info_hash=raw.get("info_hash"),
         )
 
 
