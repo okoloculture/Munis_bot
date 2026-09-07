@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.okoloculture.munis-sync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <!-- Копия скрипта лежит вне ~/Documents: macOS не пускает туда launchd
+         без Full Disk Access. Оригинал — deploy/trigger_sync.sh в репозитории. -->
+        <string>/Users/remurkov/.local/bin/munis-trigger-sync.sh</string>
+    </array>
+
+    <!-- Раз в 30 минут. Расход минут Actions: 48 прогонов в сутки,
+         тарифицируется от минуты за прогон, то есть около 1500 в месяц
+         при бесплатных 2000. Увеличьте до 2700 (45 мин), если нужен запас. -->
+    <key>StartInterval</key>
+    <integer>1800</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/remurkov/Library/Logs/munis-sync.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/remurkov/Library/Logs/munis-sync.log</string>
+</dict>
+</plist>
