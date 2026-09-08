@@ -19,14 +19,14 @@
       "message_ids": [
         3
       ],
-      "hash": "8a5ead2eaf26a52cc59af8c1b88cfd47"
+      "hash": "76729b4ad7b243442522697ff2471626"
     },
     "huawei": {
       "title": "Huawei",
       "message_ids": [
         4
       ],
-      "hash": "fa6699e677335d1909dc9d1cba84a3ec"
+      "hash": "8c3e56bed708278e3a319e4fcda5e199"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -40,7 +40,7 @@
       "message_ids": [
         6
       ],
-      "hash": "3407d79e83cedf6ec319ccd0c6926505"
+      "hash": "63eb559d713d2049594bb6185773a29c"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -51,7 +51,7 @@
         10,
         11
       ],
-      "hash": "a2f19bf6c08c71407d8764bf7a0bfab2"
+      "hash": "1380c0922c874d39e8bad7fbc1bc48b6"
     },
     "samsung": {
       "title": "Samsung",
@@ -65,14 +65,14 @@
         18,
         19
       ],
-      "hash": "a5c524353ece01230a29be7587e0a4ee"
+      "hash": "fde8798ab3e039d12699b9de8752e481"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "79f6c9f69b9d1911f66c6e0339605b22"
+      "hash": "245412c61fe9bcbc80222dc987d96032"
     },
     "watch se / s10 / s11": {
       "title": "Watch SE \\ S10 \\ S11",
@@ -80,7 +80,7 @@
         21,
         22
       ],
-      "hash": "c36a9dfca3049f3d1246f78f9bf41a18"
+      "hash": "e305da3319da6d9a357242925088fdc2"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -181,7 +181,7 @@
         38,
         39
       ],
-      "hash": "9e2cfd25c6c422f1eb49a59213126483"
+      "hash": "c79643ea6ccb7b10015efb9f7d855b17"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -189,14 +189,14 @@
         40,
         41
       ],
-      "hash": "ca63ce4f270c876c0877b2072c9bd1f6"
+      "hash": "8e7fd7f1e79c079992e3244cdc156cc0"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         42
       ],
-      "hash": "6679a7e1a3698e57e7029de93a522d52"
+      "hash": "063296dca6ceb5738611b3de5d1a6ab7"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
