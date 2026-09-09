@@ -19,14 +19,14 @@
       "message_ids": [
         3
       ],
-      "hash": "8d8c9939e17bf0d543febb56ae246823"
+      "hash": "3fd8c1fa93304a3371a17d5573faeb97"
     },
     "huawei": {
       "title": "Huawei",
       "message_ids": [
         4
       ],
-      "hash": "10fef1629d807f4b5f5a16e864101ac3"
+      "hash": "9c944d7cc957ab9336fe19e903037207"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -51,7 +51,7 @@
         10,
         11
       ],
-      "hash": "de00b6ff9745eef3b583d266c8016bb2"
+      "hash": "0605913cf1857e5cfa341da1d636dfcc"
     },
     "samsung": {
       "title": "Samsung",
@@ -65,14 +65,14 @@
         18,
         19
       ],
-      "hash": "e7e2e8220889443f47c29230ad976aba"
+      "hash": "23f8c48d16722ca5ff601595b9ee06b4"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "bfede1a2d42fafcf1ce0390f45dc281b"
+      "hash": "7f2058154bc465dc3d550971226baa26"
     },
     "watch se / s10 / s11": {
       "title": "Watch SE \\ S10 \\ S11",
@@ -80,7 +80,7 @@
         21,
         22
       ],
-      "hash": "6f259665a62ea02ce04c3e5165ccd7e9"
+      "hash": "af31a54e97e094e81b5b23ee89d21589"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -116,7 +116,7 @@
         27,
         28
       ],
-      "hash": "4332b4cafe3027a3a33627e8497d1161"
+      "hash": "95c2932c54492d4cba6c26e8589efa56"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
