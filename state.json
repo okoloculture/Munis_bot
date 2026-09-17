@@ -12,14 +12,14 @@
       "message_ids": [
         2
       ],
-      "hash": "4c5eca7fca866e5286ece1c54eda9616"
+      "hash": "40313c9a627c64eb82bfcece849c0bb6"
     },
     "honor": {
       "title": "Honor",
       "message_ids": [
         3
       ],
-      "hash": "68e881a07885ffd62313ad6881443e38"
+      "hash": "e9ed898e2b6a0d8a9940330f31ce0c78"
     },
     "huawei": {
       "title": "Huawei",
@@ -66,14 +66,14 @@
         18,
         19
       ],
-      "hash": "e8bca378ba4c9e92747995170059c4b4"
+      "hash": "04ace81c351d3efbb1e863e06f59c8f2"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "36fd487fb24f0878075ce221ebe75b8c"
+      "hash": "3dde20536a80023a056c6fa3d5233f9d"
     },
     "watch se / s10 / s11": {
       "title": "Watch SE \\ S10 \\ S11",
@@ -88,7 +88,7 @@
       "message_ids": [
         23
       ],
-      "hash": "7565d8f2ab9c32ecfc4a07ef6965ed0c"
+      "hash": "5715436ae158c149a40997aa6f01cd32"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -102,14 +102,14 @@
       "message_ids": [
         25
       ],
-      "hash": "b41c302aa4b17892e6402f41ef387932"
+      "hash": "38c50a73d9198e5caa47927ac6e24f88"
     },
     "iphone 14": {
       "title": "iPhone 14",
       "message_ids": [
         26
       ],
-      "hash": "7be447ce3986e121184095006055507d"
+      "hash": "d17cacb43d412740100b79534406e8d7"
     },
     "iphone 15": {
       "title": "iPhone 15",
@@ -117,56 +117,56 @@
         27,
         28
       ],
-      "hash": "82ae128d2e613a594473717c60b0bf6c"
+      "hash": "4dd6687ccc683cb6f285a29273002d58"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
       "message_ids": [
         29
       ],
-      "hash": "94d85e8603c4899a304f8e7c259ec548"
+      "hash": "ea73827cbdbebee0e90878a6e7470e95"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
       "message_ids": [
         30
       ],
-      "hash": "a10dec02f7a3902a7d979abc77016052"
+      "hash": "c921312831c453839122624e2c2bf17a"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
       "message_ids": [
         31
       ],
-      "hash": "26d9131ad2db078209455e2741576bf8"
+      "hash": "740fa6ad0ec0df2508271718d95386d8"
     },
     "iphone 16 pro max": {
       "title": "iPhone 16 Pro Max",
       "message_ids": [
         32
       ],
-      "hash": "ad6f89d079683e4b6e7867cca61a8dca"
+      "hash": "390c55e0b1eb8b97b6d475a539e9865c"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
       "message_ids": [
         33
       ],
-      "hash": "b07939983374e38e1e3dc13932c101a8"
+      "hash": "b46948f1e4133ed0e31853a8c3fac6be"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
       "message_ids": [
         34
       ],
-      "hash": "87cc037ed60054f5c53d17dcbbb9f389"
+      "hash": "fca8595f77f1a4f13f5ee66126bd8b58"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         35
       ],
-      "hash": "b0999564be70fa4b8943595d9af8f025"
+      "hash": "7d0e50afb02fd15971016bd89a1bbb03"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -174,7 +174,7 @@
         36,
         37
       ],
-      "hash": "427cee8ec4e3fc285d915e388d22a397"
+      "hash": "cb505bb5205fb4cecb3e309248f2bb46"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -182,7 +182,7 @@
         38,
         39
       ],
-      "hash": "3e9fef643750d60ea60db7f71233563d"
+      "hash": "91213be76ef51ad5e891acbbff63e324"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -197,14 +197,14 @@
       "message_ids": [
         42
       ],
-      "hash": "ee500fe5f78a93f1372dbe463557e613"
+      "hash": "282d6c30e555a7413811b19db6b49adb"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         43
       ],
-      "hash": "607b12da673e4d8cedfd5961febb28e0"
+      "hash": "0d0ff5812441a0bc4ed465f932f1e059"
     },
     "macbook pro": {
       "title": "MacBook Pro",
