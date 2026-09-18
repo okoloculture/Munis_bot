@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "nav_message_id": 49,
-  "nav_hash": "55222842128296a5109907d530e5cde4",
+  "nav_message_id": null,
+  "nav_hash": null,
   "excel_message_id": null,
   "excel_hash": null,
-  "info_message_id": 48,
-  "info_hash": "f9b5e6f207f6052d566012df04931fbf",
+  "info_message_id": null,
+  "info_hash": null,
   "slots": {
     "google": {
       "title": "Google",
@@ -24,10 +24,9 @@
     "huawei": {
       "title": "Huawei",
       "message_ids": [
-        4,
-        67
+        4
       ],
-      "hash": "23813808ee007fcd4c2a6e7068ef9e4d"
+      "hash": null
     },
     "oneplus": {
       "title": "OnePlus",
