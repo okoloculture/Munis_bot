@@ -8,6 +8,8 @@ from markup import parse_tiers
 from state import CategorySlot, State
 from sync import (
     build_excel,
+    ensure_info_is_after_prices,
+    ensure_nav_is_last,
     content_hash,
     is_allowed,
     planned_keys,
@@ -184,3 +186,54 @@ def test_read_info_text_rejects_empty_and_oversized(tmp_path):
 def test_read_info_text_survives_missing_file(tmp_path):
     cfg = make_config(info_enabled=True, info_file=tmp_path / "нет.html")
     assert read_info_text(cfg) is None
+
+
+def _state_with(slots: dict[str, list[int]], *, info: int | None = None,
+                nav: int | None = None) -> State:
+    return State(
+        slots={k: CategorySlot(title=k, message_ids=v) for k, v in slots.items()},
+        info_message_id=info, nav_message_id=nav,
+    )
+
+
+def test_ensure_info_after_prices_detects_new_posts_below():
+    import asyncio
+
+    class Api:
+        def __init__(self): self.deleted = []
+        async def delete_message(self, chat, mid):
+            self.deleted.append(mid); return {}
+
+    api = Api()
+    state = _state_with({"a": [2, 3], "new": [50]}, info=48, nav=49)
+    assert asyncio.run(ensure_info_is_after_prices(api, make_config(), state)) is True
+    assert api.deleted == [48]
+    assert state.info_message_id is None
+
+
+def test_ensure_info_after_prices_noop_when_already_last():
+    import asyncio
+    state = _state_with({"a": [2, 3]}, info=48, nav=49)
+    assert asyncio.run(ensure_info_is_after_prices(None, make_config(), state)) is False
+    assert state.info_message_id == 48
+
+
+def test_ensure_nav_is_last_triggers_on_any_message_below():
+    import asyncio
+
+    class Api:
+        def __init__(self): self.deleted = []
+        async def delete_message(self, chat, mid):
+            self.deleted.append(mid); return {}
+
+    api = Api()
+    state = _state_with({"a": [2], "new": [50]}, info=51, nav=49)
+    assert asyncio.run(ensure_nav_is_last(api, make_config(), state)) is True
+    assert api.deleted == [49]
+    assert state.nav_message_id is None
+
+
+def test_ensure_nav_is_last_noop_when_lowest():
+    import asyncio
+    state = _state_with({"a": [2]}, info=48, nav=49)
+    assert asyncio.run(ensure_nav_is_last(None, make_config(), state)) is False

@@ -348,15 +348,50 @@ async def publish_info(api: BotApi, cfg: Config, state: State) -> bool:
     return True
 
 
+async def ensure_info_is_after_prices(api: BotApi, cfg: Config, state: State) -> bool:
+    """Информационное сообщение должно идти после всех прайсов.
+
+    Новая категория создаёт сообщение в конце канала, ниже информационного.
+    Переставить сообщения Telegram не даёт, поэтому информационное удаляем —
+    publish_info создаст его заново внизу.
+    """
+    if not state.info_message_id:
+        return False
+
+    last_price = max(
+        (mid for slot in state.slots.values() for mid in slot.message_ids), default=0
+    )
+    if last_price < state.info_message_id:
+        return False
+
+    if await api.delete_message(cfg.target_chat_id, state.info_message_id) is None:
+        log.warning(
+            "Не удалось удалить информационное сообщение (message_id=%s) — порядок "
+            "сообщений останется прежним", state.info_message_id,
+        )
+        return False
+
+    log.info("Информационное сообщение удалено, будет пересоздано ниже новых прайсов")
+    state.info_message_id = None
+    state.info_hash = None
+    return True
+
+
 async def ensure_nav_is_last(api: BotApi, cfg: Config, state: State) -> bool:
     """Навигация должна быть последним сообщением канала.
 
-    Сообщения нельзя переставлять, поэтому если информационное оказалось ниже
-    навигации, старую навигацию удаляем — publish_nav создаст её заново внизу.
+    Сообщения нельзя переставлять, поэтому если что-то оказалось ниже навигации,
+    старую навигацию удаляем — publish_nav создаст её заново внизу.
     """
-    if not (state.nav_message_id and state.info_message_id):
+    if not state.nav_message_id:
         return False
-    if state.nav_message_id > state.info_message_id:
+
+    below = max(
+        [mid for slot in state.slots.values() for mid in slot.message_ids]
+        + ([state.info_message_id] if state.info_message_id else []),
+        default=0,
+    )
+    if state.nav_message_id > below:
         return False
 
     if await api.delete_message(cfg.target_chat_id, state.nav_message_id) is None:
@@ -366,7 +401,7 @@ async def ensure_nav_is_last(api: BotApi, cfg: Config, state: State) -> bool:
         )
         return False
 
-    log.info("Старая навигация удалена, будет пересоздана ниже информационного сообщения")
+    log.info("Старая навигация удалена, будет пересоздана в конце канала")
     state.nav_message_id = None
     state.nav_hash = None
     return True
@@ -485,6 +520,8 @@ async def sync_once(
         log.exception("Сбой при выгрузке Excel")
 
     try:
+        if await ensure_info_is_after_prices(api, cfg, state):
+            save_state(state, state_path)
         if await publish_info(api, cfg, state):
             save_state(state, state_path)
         if await ensure_nav_is_last(api, cfg, state):

@@ -75,14 +75,6 @@
       ],
       "hash": "dac581560872e8ce2242ae5228ae4bf2"
     },
-    "watch se / s10 / s11": {
-      "title": "Watch SE \\ S10 \\ S11",
-      "message_ids": [
-        21,
-        22
-      ],
-      "hash": "a4540c44805f8ece2bc602dbfb679d4a"
-    },
     "ultra watch": {
       "title": "Ultra Watch",
       "message_ids": [
@@ -212,6 +204,14 @@
         44
       ],
       "hash": "9b6559e323416a44040cffb7d953ebcf"
+    },
+    "watch se / s10 / s11 / s12": {
+      "title": "Watch SE \\ S10 \\ S11 \\ S12",
+      "message_ids": [
+        21,
+        22
+      ],
+      "hash": null
     }
   }
 }
