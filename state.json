@@ -1,7 +1,7 @@
 {
   "version": 1,
   "nav_message_id": 49,
-  "nav_hash": "f97211fddb9e47c49986a8983615fc49",
+  "nav_hash": "55222842128296a5109907d530e5cde4",
   "excel_message_id": null,
   "excel_hash": null,
   "info_message_id": 48,
@@ -211,7 +211,21 @@
         21,
         22
       ],
-      "hash": null
+      "hash": "a12709e5a277e0915e834fd058675ef2"
+    },
+    "iphone 18 pro": {
+      "title": "iPhone 18 Pro",
+      "message_ids": [
+        69
+      ],
+      "hash": "c54fb67b857f882857730d1fca2a6335"
+    },
+    "iphone 18 pro max": {
+      "title": "iPhone 18 Pro Max",
+      "message_ids": [
+        70
+      ],
+      "hash": "0c6ffd651d87c00be0a019a53d6524f9"
     }
   }
 }
