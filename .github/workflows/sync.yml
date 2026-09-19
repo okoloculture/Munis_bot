@@ -1,6 +1,6 @@
 name: sync
 
-# Раз в час бот читает опт, пересчитывает цены и правит посты в канале.
+# Бот читает опт и правит посты в двух каналах: MUNIS_PRICE и IStore ima.
 # Своего сервера не нужно: прогон занимает от десяти секунд, когда ничего
 # не изменилось, до трёх минут, когда поменялся весь каталог.
 on:
@@ -36,16 +36,26 @@ jobs:
       - name: Установка зависимостей
         run: pip install --quiet -r requirements.txt
 
-      - name: Синхронизация
+      - name: Синхронизация MUNIS_PRICE
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: python main.py --once
 
-      - name: Выгрузка прайса в артефакты
+      # Второй канал на том же коде: свой конфиг, своё состояние, свой бот.
+      # Падение одного канала не должно ронять другой, поэтому continue-on-error.
+      - name: Синхронизация IStore ima
+        continue-on-error: true
+        env:
+          BOT_TOKEN_IMA: ${{ secrets.BOT_TOKEN_IMA }}
+        run: python main.py --once --config config-ima.yaml --state state-ima.json
+
+      - name: Выгрузка прайсов в артефакты
         uses: actions/upload-artifact@v7
         with:
           name: price-xlsx
-          path: _excel/*.xlsx
+          path: |
+            _excel/*.xlsx
+            _excel_ima/*.xlsx
           if-no-files-found: warn
           retention-days: 14
 
@@ -53,12 +63,12 @@ jobs:
       # Без коммита обратно следующий прогон опубликовал бы каталог заново.
       - name: Сохранение state.json
         run: |
-          if git diff --quiet -- state.json; then
-            echo "state.json без изменений"
+          if git diff --quiet -- state.json state-ima.json; then
+            echo "состояние без изменений"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json
-          git commit -m "chore: обновление state.json"
+          git add state.json state-ima.json
+          git commit -m "chore: обновление состояния каналов"
           git push

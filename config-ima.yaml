@@ -1,0 +1,85 @@
+# Канал ima на общем движке. Источник тот же, что у MUNIS.
+source_channel: opt_uniseil
+
+# В канале ima работает свой бот @IStoreImaBot
+bot_token_env: BOT_TOKEN_IMA
+
+# Канал публичный, поэтому ссылки в навигации будут обычными, а не t.me/c/
+target_chat_id: "-1003799041020"
+target_channel: imastoreeee
+
+# Наценка процентная — как была у прежнего Ima_bot.
+# Ступень задаётся либо pct (процент), либо add (рубли), но не обоими сразу.
+markup_tiers:
+  - {up_to: 40000, pct: 10}
+  - {up_to: 70000, pct: 7}
+  - {up_to: 100000, pct: 6}
+  - {up_to: null, pct: 5}
+
+price_format: "{name} — {price} ₽"
+
+# Процентная наценка даёт некруглые числа, поэтому округляем вверх до сотен
+round_to_nearest: 100
+
+check_interval: 3600
+max_scan_pages: 8
+
+categories:
+  - Google
+  - Honor
+  - Huawei
+  - OnePlus
+  - Realme
+  - Xiaomi
+  - Samsung
+  - AirPods
+  - Watch SE \ S10 \ S11 \ S12
+  - Ultra Watch
+  - iPhone 11 \ 12
+  - iPhone 13
+  - iPhone 14
+  - iPhone 15
+  - iPhone 16e \ 16
+  - iPhone 16 Plus
+  - iPhone 16 Pro
+  - iPhone 16 Pro Max
+  - iPhone 17e \ 17
+  - iPhone 17 Air
+  - iPhone 17 Pro
+  - iPhone 17 Pro Max
+  - iPhone 18 Pro
+  - iPhone 18 Pro Max
+  - iPad Air
+  - iPad Pro
+  - iPad Mini \ 10 \ 11
+  - MacBook Neo \ Air
+  - MacBook Pro
+
+deny_categories:
+  - iPhone (ASIS)
+
+allow_create: true
+disable_notification: true
+
+nav:
+  enabled: true
+  text: "ВЫБЕРИТЕ НУЖНУЮ КАТЕГОРИЮ✅"
+  columns: 3
+  row_width: 30
+  pin: true
+  button_style: default
+
+order_button:
+  text: "ЗАКАЗАТЬ"
+  url: "https://t.me/istore_imaa"
+  style: primary
+
+info_message:
+  enabled: true
+  file: "info-ima.html"
+
+excel:
+  enabled: true
+  publish: false
+  output_dir: "_excel_ima"
+  filename: "Прайс_IStore_{date}.xlsx"

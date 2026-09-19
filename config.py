@@ -136,9 +136,16 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
     if not isinstance(raw, dict):
         raise ConfigError("config.yaml должен содержать словарь на верхнем уровне")
 
-    token = os.environ.get("BOT_TOKEN", "").strip()
+    # У каждого канала свой бот, поэтому имя переменной с токеном задаётся
+    # в конфиге: так один кодовый базис обслуживает несколько каналов.
+    token_env = raw.get("bot_token_env", "BOT_TOKEN")
+    if not isinstance(token_env, str) or not token_env.strip():
+        raise ConfigError("'bot_token_env' должен быть непустой строкой")
+    token_env = token_env.strip()
+
+    token = os.environ.get(token_env, "").strip()
     if require_token and not token:
-        raise ConfigError("Не задан BOT_TOKEN (положите его в .env)")
+        raise ConfigError(f"Не задан {token_env} (положите его в .env)")
 
     round_to = raw.get("round_to_nearest", 0)
     if not isinstance(round_to, int) or isinstance(round_to, bool) or round_to < 0:

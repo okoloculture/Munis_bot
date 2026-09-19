@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "nav_message_id": 293,
+  "nav_hash": "f0bb04d9a807b0afb5d8d4bd786e3e88",
+  "excel_message_id": null,
+  "excel_hash": null,
+  "info_message_id": 292,
+  "info_hash": "df39823b020d629c11a4e49912818cb2",
+  "slots": {
+    "google": {
+      "title": "Google",
+      "message_ids": [
+        188
+      ],
+      "hash": "79df29f566e7f1f8baf77799520d2888"
+    },
+    "honor": {
+      "title": "Honor",
+      "message_ids": [
+        189
+      ],
+      "hash": "e399f5a6b0c612891313b450a6134016"
+    },
+    "huawei": {
+      "title": "Huawei",
+      "message_ids": [
+        190,
+        191
+      ],
+      "hash": "f7dd4c4766d2b1b6db826cfe832ff4c9"
+    },
+    "oneplus": {
+      "title": "OnePlus",
+      "message_ids": [
+        192
+      ],
+      "hash": "df799468eb98a18caf1c3cdaa6ab1cc7"
+    },
+    "realme": {
+      "title": "Realme",
+      "message_ids": [
+        193
+      ],
+      "hash": "1d9da8590e900bdfe5382227fafd03f7"
+    },
+    "xiaomi": {
+      "title": "Xiaomi",
+      "message_ids": [
+        194,
+        195,
+        196,
+        197,
+        198
+      ],
+      "hash": "159d31db0ae99f1e064bde104fcb32bc"
+    },
+    "samsung": {
+      "title": "Samsung",
+      "message_ids": [
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        249,
+        250
+      ],
+      "hash": "691e6846c5f1f428d36478e5198fdbc1"
+    },
+    "airpods": {
+      "title": "AirPods",
+      "message_ids": [
+        255
+      ],
+      "hash": "a35e5ce09f12ec34245b0b984a18718e"
+    },
+    "watch se / s10 / s11 / s12": {
+      "title": "Watch SE \\ S10 \\ S11 \\ S12",
+      "message_ids": [
+        258,
+        259
+      ],
+      "hash": "486fa84083d98ae2b32221263152ff97"
+    },
+    "ultra watch": {
+      "title": "Ultra Watch",
+      "message_ids": [
+        261
+      ],
+      "hash": "3a20932b45a5b3f781ea29311e67edef"
+    },
+    "iphone 11 / 12": {
+      "title": "iPhone 11 \\ 12",
+      "message_ids": [
+        269
+      ],
+      "hash": "2d74b640b7e753ce7ba56f50d9e6db85"
+    },
+    "iphone 13": {
+      "title": "iPhone 13",
+      "message_ids": [
+        270
+      ],
+      "hash": "0e3b9a500cdf5d7c3754d17f79abb8f9"
+    },
+    "iphone 14": {
+      "title": "iPhone 14",
+      "message_ids": [
+        271
+      ],
+      "hash": "5dfc554f391b30c344e477c852f40c2f"
+    },
+    "iphone 15": {
+      "title": "iPhone 15",
+      "message_ids": [
+        272,
+        273
+      ],
+      "hash": "e9384bf15f63730895bd8fdcd15307c3"
+    },
+    "iphone 16e / 16": {
+      "title": "iPhone 16e \\ 16",
+      "message_ids": [
+        274
+      ],
+      "hash": "5f0a0378f19e8963445c78053537aa37"
+    },
+    "iphone 16 plus": {
+      "title": "iPhone 16 Plus",
+      "message_ids": [
+        275
+      ],
+      "hash": "fde5913a0b7d13b48b5f3b4bba5ad885"
+    },
+    "iphone 16 pro": {
+      "title": "iPhone 16 Pro",
+      "message_ids": [
+        276
+      ],
+      "hash": "b5e2864e6114b120290039f63a7eab4d"
+    },
+    "iphone 16 pro max": {
+      "title": "iPhone 16 Pro Max",
+      "message_ids": [
+        277
+      ],
+      "hash": "51e410e904a8224384d863922ef037f5"
+    },
+    "iphone 17e / 17": {
+      "title": "iPhone 17e \\ 17",
+      "message_ids": [
+        278
+      ],
+      "hash": "6e6ef54d675cea9a0e800f720feb72bf"
+    },
+    "iphone 17 air": {
+      "title": "iPhone 17 Air",
+      "message_ids": [
+        279
+      ],
+      "hash": "bed971b38518cae3939c035e349adb66"
+    },
+    "iphone 17 pro": {
+      "title": "iPhone 17 Pro",
+      "message_ids": [
+        280
+      ],
+      "hash": "fe83d8eca3ff6e78c8dead65cd2e7059"
+    },
+    "iphone 17 pro max": {
+      "title": "iPhone 17 Pro Max",
+      "message_ids": [
+        281,
+        282
+      ],
+      "hash": "7ce313a2463e8621dfdb3ccdee388a12"
+    },
+    "iphone 18 pro": {
+      "title": "iPhone 18 Pro",
+      "message_ids": [
+        283
+      ],
+      "hash": "cd66b9d56ff6c2c0f015fde64a2719c6"
+    },
+    "iphone 18 pro max": {
+      "title": "iPhone 18 Pro Max",
+      "message_ids": [
+        284
+      ],
+      "hash": "5e6cdf9ef0a6d1ce81251ce64ab65425"
+    },
+    "ipad air": {
+      "title": "iPad Air",
+      "message_ids": [
+        285,
+        286
+      ],
+      "hash": "6017e9fa192b8dafe4abe03a5b0845e7"
+    },
+    "ipad pro": {
+      "title": "iPad Pro",
+      "message_ids": [
+        287,
+        288
+      ],
+      "hash": "40ba11cc93b364224ccdf58ff1be79df"
+    },
+    "ipad mini / 10 / 11": {
+      "title": "iPad Mini \\ 10 \\ 11",
+      "message_ids": [
+        289
+      ],
+      "hash": "44a436f6bcae905164764be5a715fc4c"
+    },
+    "macbook neo / air": {
+      "title": "MacBook Neo \\ Air",
+      "message_ids": [
+        290
+      ],
+      "hash": "0ce815eb6ea3f975aa89bf359cbf7306"
+    },
+    "macbook pro": {
+      "title": "MacBook Pro",
+      "message_ids": [
+        291
+      ],
+      "hash": "d3fe93ead3111ac75802ac1fd071ab12"
+    }
+  }
+}
