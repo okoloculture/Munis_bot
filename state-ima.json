@@ -12,14 +12,14 @@
       "message_ids": [
         188
       ],
-      "hash": "ea8fec4fb4c3f439a8e0ed94489e37f4"
+      "hash": "deb8811f7ed96c0b7bcfd15bda8a9613"
     },
     "honor": {
       "title": "Honor",
       "message_ids": [
         189
       ],
-      "hash": "7206ecfa0bbf866209cc01ed72c5f40a"
+      "hash": "32160501519e35af6a52fdfbd0fa4d37"
     },
     "huawei": {
       "title": "Huawei",
@@ -41,7 +41,7 @@
       "message_ids": [
         193
       ],
-      "hash": "880b54b06dedce93642668c29b7665fc"
+      "hash": "dfef6fe5ddf64fadcfd774a90030cb66"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "6877c251b84438c9702b8a2ec960487c"
+      "hash": "5120a9a9fa0d0f046350264b65d203e9"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         249,
         250
       ],
-      "hash": "5c4d97d30277885119ddda0ed8d7d4f5"
+      "hash": "fd9b45aad3d7d12d631c517a4a41a2e6"
     },
     "airpods": {
       "title": "AirPods",
@@ -88,7 +88,7 @@
       "message_ids": [
         261
       ],
-      "hash": "547882702e0f650784a1767f36ee1a24"
+      "hash": "d5ab2cdb6c134ff3a0aa5fb46d1f1087"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -102,7 +102,7 @@
       "message_ids": [
         270
       ],
-      "hash": "69b07f2741f58f8891ff7873ae772c01"
+      "hash": "4d6fb447950c3e21a58e5923fb1bfd39"
     },
     "iphone 14": {
       "title": "iPhone 14",
@@ -145,7 +145,7 @@
       "message_ids": [
         277
       ],
-      "hash": "cf24d77de415b2be4f6ef97d01e640bf"
+      "hash": "9c3d47747de6330a1ea8d8418b22b350"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
@@ -166,7 +166,7 @@
       "message_ids": [
         280
       ],
-      "hash": "b3760cd5274dca94be5f718e84fee36d"
+      "hash": "9024a124ff93b73d9fbec6f8050cd2dd"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -174,21 +174,21 @@
         281,
         282
       ],
-      "hash": "d34c9a3e84d2b1f7c30f4c062536396e"
+      "hash": "d3f3c861289883443d23fcbd41c907b2"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "c13c5584f7051a7d64be3a0e347412d6"
+      "hash": "6cfbd0f785ac10ff7ea563b98c546e20"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "12524cab20902afaa7026d2bb77cb91e"
+      "hash": "dcd3a19f961007cca3f9baa982b48a4d"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -211,21 +211,21 @@
       "message_ids": [
         289
       ],
-      "hash": "629277b9591641ea0431ccf4fe9bbb44"
+      "hash": "d0d293532f74aba4a1b759c3b7213842"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         290
       ],
-      "hash": "d234b83caba50a4a1e5a13d9fb287e26"
+      "hash": "555a1a4f311a712f69703fd4aef02ce5"
     },
     "macbook pro": {
       "title": "MacBook Pro",
       "message_ids": [
         291
       ],
-      "hash": "25142f7b6727f9c64e0cbb0f5b7fee3d"
+      "hash": "2f0dd93adee45901272fbd1b3351b376"
     }
   }
 }
