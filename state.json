@@ -66,21 +66,21 @@
         18,
         19
       ],
-      "hash": "c191958c79efb68f941f173451347a0e"
+      "hash": "d46950cd373bca8dff27f60cc86387f1"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "298204390f6511ff8bb33bdb1265d549"
+      "hash": "d9ade89adc5141cc66d7bf72c4e648b6"
     },
     "ultra watch": {
       "title": "Ultra Watch",
       "message_ids": [
         23
       ],
-      "hash": "7e41f6dc44eab9a5988a6699864ad713"
+      "hash": "4e2bb2bf8e699c279e0a7e50ee34acbd"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -109,7 +109,7 @@
         27,
         28
       ],
-      "hash": "094aa426181517a3d1607c5a570d0d72"
+      "hash": "bab86b0d850892950dd661dc4c08cf1b"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -144,7 +144,7 @@
       "message_ids": [
         33
       ],
-      "hash": "295958465cdeecf711330f00abdfa482"
+      "hash": "e819af71b33be7981601f190a07b16f7"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -166,7 +166,7 @@
         36,
         37
       ],
-      "hash": "ff1d28dfb4f217ae63d06e1b615da8c2"
+      "hash": "8f4fb25f9425a56c9cd88bf89947cc16"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -174,7 +174,7 @@
         38,
         39
       ],
-      "hash": "6b2c5c7b1929f02f92c043a810dfdf87"
+      "hash": "ca6e185caa1d41b5e78d1d06908e5454"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -189,7 +189,7 @@
       "message_ids": [
         42
       ],
-      "hash": "193db4d78ba10b77a3ebe6800d972eee"
+      "hash": "0ff55a924bd977c06f8685a193cbd558"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
@@ -211,7 +211,7 @@
         21,
         22
       ],
-      "hash": "dadcdc86e42b85050119b65f283c0695"
+      "hash": "68158c6f0dde3bdf6d4fca3d10be0bfb"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
@@ -225,7 +225,7 @@
       "message_ids": [
         70
       ],
-      "hash": "91a7d0e001e3cbd34af7e7314fedda17"
+      "hash": "369a68f885c689e4dc941ce4651d6dce"
     }
   }
 }

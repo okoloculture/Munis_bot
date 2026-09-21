@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "b823f5bfb37f132a92f56a7e7330a899"
+      "hash": "0206dbbe32f9af9d9a5d0b776eefdc00"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "93ee5c31befc1478cba0f55dabe8c718"
+      "hash": "1d9c46d26fa53ad15b51442b1fc5725f"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -81,14 +81,14 @@
         258,
         259
       ],
-      "hash": "b614800cb023303fd9d844050e26b12c"
+      "hash": "d4544ea86c0fe5310fd77ada57de9096"
     },
     "ultra watch": {
       "title": "Ultra Watch",
       "message_ids": [
         261
       ],
-      "hash": "f9b188dd6d7ee6927326b6142a129e9a"
+      "hash": "d24d4752bf9c1eb9909a50eb32db7952"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -117,7 +117,7 @@
         272,
         273
       ],
-      "hash": "634c1f5de60131cb7a3ce01c811ffc05"
+      "hash": "20f3f1df5f4c73fad132ea4173f01667"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -152,7 +152,7 @@
       "message_ids": [
         278
       ],
-      "hash": "cb6587cd9e295b162fc5779789506bcb"
+      "hash": "79ab195cda56b3fff42e82e81839c90a"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -174,7 +174,7 @@
         281,
         282
       ],
-      "hash": "87e982c484eff8ec86643219354060d4"
+      "hash": "38604a669547a199330dd49c0bd372a2"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
@@ -188,7 +188,7 @@
       "message_ids": [
         284
       ],
-      "hash": "49c7e320974486850a6df92711c75087"
+      "hash": "d474d761494189c9d0dc97e00745f0ad"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -196,7 +196,7 @@
         285,
         286
       ],
-      "hash": "90f026f2d40f3b33ad07832dc8e6316f"
+      "hash": "1f5ad20cb7bc112deb73d2a231651c70"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -211,7 +211,7 @@
       "message_ids": [
         289
       ],
-      "hash": "80d96d378dc5b485e876cb9362b7fcdf"
+      "hash": "869cc744a82f5bfa4745be140afbb638"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
