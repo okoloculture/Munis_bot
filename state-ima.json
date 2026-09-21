@@ -27,7 +27,7 @@
         190,
         191
       ],
-      "hash": "96c1ff4a689265130c4203758d41a7cf"
+      "hash": "c9c353f1f3e004cd6af41a9a8566c371"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "b71fa66a08c25ceead746466bbd76126"
+      "hash": "573451dc57122df057ff59fd62808fe2"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "06a54299d9dfbc43e99324c5386ae6c3"
+      "hash": "ed01f7b77eeb1f362da05c18c14e2552"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "730018cef8e964e38cf2bc04e8773ccb"
+      "hash": "90bee7c233da072797e207d6f24a2d37"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -81,14 +81,14 @@
         258,
         259
       ],
-      "hash": "ed4e44ad5c3dedc148fc712d70aeacf6"
+      "hash": "551a7092a0cf782e7528bb3679c13431"
     },
     "ultra watch": {
       "title": "Ultra Watch",
       "message_ids": [
         261
       ],
-      "hash": "5ed306b2f8e7fc623758e7f30f6035b4"
+      "hash": "4be3eef5524424c4c4f712eccf7eac98"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -117,21 +117,21 @@
         272,
         273
       ],
-      "hash": "f5a1824db83bcd6a3c2979cd43db731e"
+      "hash": "fe1493a2b5e8a4f5578f42e6297bfd97"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
       "message_ids": [
         274
       ],
-      "hash": "a2a86f1f0b9f51793ef5953353503a50"
+      "hash": "31410df66d99d3d564b06e0ea697b18c"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
       "message_ids": [
         275
       ],
-      "hash": "2cfdf13f81dda7e9177df8199c22cd91"
+      "hash": "2d7b56566a7920c119888e9f0d2f1b96"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
@@ -145,14 +145,14 @@
       "message_ids": [
         277
       ],
-      "hash": "fc458dbf0890d9eb03a4dcd156497a90"
+      "hash": "182fd67f4fe7cba22a24628e0429e180"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
       "message_ids": [
         278
       ],
-      "hash": "dbffcf93e15fe6d04d6a7c2affb6e89d"
+      "hash": "65ca832dac89fff87b528354932f298d"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -166,7 +166,7 @@
       "message_ids": [
         280
       ],
-      "hash": "a546e87b0e0c4a737f58b6cf6d5b74f7"
+      "hash": "59ba02e3a89c5028da9f7c3cfbf0fe6e"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -174,21 +174,21 @@
         281,
         282
       ],
-      "hash": "6b58c569a5e32ad03e422d4a95bf5a55"
+      "hash": "d4078a63f6414b7887f151446bd8033e"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "11f881e3945aa7ad726ad80ce7a5f46b"
+      "hash": "82571fe5fdb5fe37bad691ad2d0b9a30"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "fb11121c44619ed537f92a08bb05617f"
+      "hash": "710591a26d9c0a175ac346eb45bf5a55"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -196,7 +196,7 @@
         285,
         286
       ],
-      "hash": "f96181e657ae8a1b0b4807948b96b4a4"
+      "hash": "8dfd1b4ee9fc81d32b184b20a2d4cd50"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -211,21 +211,21 @@
       "message_ids": [
         289
       ],
-      "hash": "c5ba33b08b51ef2f62538dcd7435fa09"
+      "hash": "b34ba1b75a1ee0fe2a72c3cf98ba7491"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         290
       ],
-      "hash": "cee2abf0cdb7423c3f1919e018d57d6c"
+      "hash": "c7c31aa925169d7e941eff9129a1cf17"
     },
     "macbook pro": {
       "title": "MacBook Pro",
       "message_ids": [
         291
       ],
-      "hash": "aac0fec78b8668c0ba7d9479e27cb1a0"
+      "hash": "be219949c9d8ed1c92a4ad4009b63d8d"
     }
   }
 }
