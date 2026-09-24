@@ -19,7 +19,7 @@
       "message_ids": [
         3
       ],
-      "hash": "045bc6f64db4f701d9db6775cb9cea52"
+      "hash": "eb6f26a834e27dda68afbff3690e04bf"
     },
     "huawei": {
       "title": "Huawei",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "baf94578dc692045596c29488cf98f03"
+      "hash": "e3d33b08bd37a9b95611edbf974424c1"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         18,
         19
       ],
-      "hash": "67d44afc44aa9e8fba0c78823657364c"
+      "hash": "5d92c5a148e77758c810bb096a3df8cf"
     },
     "airpods": {
       "title": "AirPods",
@@ -80,7 +80,7 @@
       "message_ids": [
         23
       ],
-      "hash": "362a4d73e4f0fdf57826dc11bae989f6"
+      "hash": "937c30890de561477d216e0f22f94355"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -144,7 +144,7 @@
       "message_ids": [
         33
       ],
-      "hash": "396ce797de078567270e31d5c0313051"
+      "hash": "945b700abbfff6819bfb63af05dbb0b5"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -158,7 +158,7 @@
       "message_ids": [
         35
       ],
-      "hash": "eec6a08330a72b27998bebde6e926adc"
+      "hash": "59f17ee4121ea81dbef3143ed8c3fab4"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -189,7 +189,7 @@
       "message_ids": [
         42
       ],
-      "hash": "ca5396fd078ef9ba0298ae292677c5f5"
+      "hash": "a0670e76f6cc42f9db5ea2a1981dd12d"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
@@ -211,21 +211,21 @@
         21,
         22
       ],
-      "hash": "f666442043481ca02b68c24921a00f4b"
+      "hash": "8b364e220e91313ef4ee108eb2571a42"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         69
       ],
-      "hash": "699d45c0b3461c00bc6035c586d09ba4"
+      "hash": "bb4632b9f45801a71eba1ec3a78fc3ff"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "268c2549794246bd705f3ea0d82224ca"
+      "hash": "736c827ed0fc538379ced3ff51a6fff7"
     }
   }
 }
