@@ -19,7 +19,7 @@
       "message_ids": [
         3
       ],
-      "hash": "79e4efb2348c949408572f0d20affa9a"
+      "hash": "de23a44578bc9e617712c7e6f6dcc367"
     },
     "huawei": {
       "title": "Huawei",
@@ -41,7 +41,7 @@
       "message_ids": [
         6
       ],
-      "hash": "22196bb7e11ee5d218bb564d66ad1196"
+      "hash": "3ae50f182d200960c1ae2a99ead27d90"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "c6a78912764d2f33a9841a4b2c0a2ee6"
+      "hash": "36cc40b3b1d4a74cf95c5034d9e45099"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         18,
         19
       ],
-      "hash": "96ba12da3405b2fc4d5fee2561cf13bf"
+      "hash": "90b2266884eda808748d9159710e9299"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "aa0bd79d937ce2f048f59afb0575f40e"
+      "hash": "91eafe0bcd713a6fc8eb316549b0b989"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -166,7 +166,7 @@
         36,
         37
       ],
-      "hash": "ca1b284e9bfbdcfc7277898956637483"
+      "hash": "aa0080b2ac14d50a9aa6c92b4890e86d"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -182,14 +182,14 @@
         40,
         41
       ],
-      "hash": "6831db61b692eb0546e828e73b42cc99"
+      "hash": "d04b3ad738baf02313aa8f9280e9fc8c"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         42
       ],
-      "hash": "dd270b527480178e0b111a19980be181"
+      "hash": "ce7d760b549556c9dfab5212355fd1d2"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
@@ -218,14 +218,14 @@
       "message_ids": [
         69
       ],
-      "hash": "3bbf22247952830d94cd89f957dea7aa"
+      "hash": "1c112703b698126f020f0d356b49f9e6"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "034afe0685ffe50b68217bd6b8b2979d"
+      "hash": "95ff582d1417e70ec840b410b4cacdc0"
     }
   }
 }
