@@ -19,7 +19,7 @@
       "message_ids": [
         189
       ],
-      "hash": "cdd0e07807efe2745f7d6e1f9e7ff03c"
+      "hash": "5fe5627369e9fd8141662666329ceed8"
     },
     "huawei": {
       "title": "Huawei",
@@ -27,7 +27,7 @@
         190,
         191
       ],
-      "hash": "e4ac6b4b46b097f4ced61f7e9fb25d07"
+      "hash": "59dc703ec667c9f7dfee60ff7fa4658e"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -41,7 +41,7 @@
       "message_ids": [
         193
       ],
-      "hash": "bb1306d459a0d256bd14563f0fb87071"
+      "hash": "77dd95e36cb8ac7e501b5614527c71e7"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "8af48c9f0720d52a73589f87ff3836b1"
+      "hash": "259976b2d48dbc7700f71f59c6fca833"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "2efc6d0975c93661098bf8d61ce38470"
+      "hash": "c6abfb8d910184cbb10106834585d238"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "6a2cd187c14388e71e7cd0ba8ef801a0"
+      "hash": "28839342a8275ae1307570a8d1da1e7a"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -88,7 +88,7 @@
       "message_ids": [
         261
       ],
-      "hash": "dc5b1848967a64933a734fb1d0c23cc4"
+      "hash": "bb0ef1f4c5c411d5e159c46425c512cb"
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
@@ -188,7 +188,7 @@
       "message_ids": [
         284
       ],
-      "hash": "3401ae1dd6e6d3760a5cc28da712b80a"
+      "hash": "4d5e421815fb31e6d0fa837504909236"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -204,14 +204,14 @@
         287,
         288
       ],
-      "hash": "664401ddd8f1aa670bcb0d0d029f5718"
+      "hash": "3c7e4002f98f8f0b033f6c1285f82b50"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         289
       ],
-      "hash": "e07488ee7a27d29a99d8abc371592757"
+      "hash": "fa8019b12e9cdbc6adbc1614376b4b4e"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
