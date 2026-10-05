@@ -12,14 +12,14 @@
       "message_ids": [
         2
       ],
-      "hash": "8241216d766b3d89c1670dcd57881306"
+      "hash": "50a14dbff31bcd33b2140a92cc4e575d"
     },
     "honor": {
       "title": "Honor",
       "message_ids": [
         3
       ],
-      "hash": "292576446dfb463a8490382a6412a7d8"
+      "hash": "21e01cf06ecef759df55b3f56c1fb022"
     },
     "huawei": {
       "title": "Huawei",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "651e35c5de9ac08b9aae61701b5faf71"
+      "hash": "4a6e47882cfc2bb0b232d0c269f5f38a"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         18,
         19
       ],
-      "hash": "b65833dce93796ae5319e9b3e8a1718d"
+      "hash": "4c70e4468b0e192e96347570c25acf8a"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "99102c9603012f0f1facbbd757ae2937"
+      "hash": "307226812573839091a92be8a1fcc531"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -88,7 +88,7 @@
       "message_ids": [
         24
       ],
-      "hash": "426a87ab516b16bd60e5a35f08ab6524"
+      "hash": "1dcdbdf90f3f69552fcaa619e6eff32d"
     },
     "iphone 13": {
       "title": "iPhone 13",
@@ -102,7 +102,7 @@
       "message_ids": [
         26
       ],
-      "hash": "19660c68311e590dd94a9aad20d1de53"
+      "hash": "17f4d1d0576cf0db444aa57682c47bb4"
     },
     "iphone 15": {
       "title": "iPhone 15",
@@ -110,21 +110,21 @@
         27,
         28
       ],
-      "hash": "675c8d97140789f68a767b5511c453e4"
+      "hash": "e384080843cb841458c514f89bba24a0"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
       "message_ids": [
         29
       ],
-      "hash": "46f2507abe89aca546b87a2f37261f14"
+      "hash": "19e55d20cf85432faa3e199b8fe1cbec"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
       "message_ids": [
         30
       ],
-      "hash": "528005b717451bc9f51b00055976d4bf"
+      "hash": "5206f08349d3af64cb5870791d2688f9"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
@@ -138,14 +138,14 @@
       "message_ids": [
         32
       ],
-      "hash": "2cd3b882d41c6ef4c42d2347f16f437d"
+      "hash": "9d122222b2cc2f485ee5e4a5efef9821"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
       "message_ids": [
         33
       ],
-      "hash": "13d97d7eadd0175e32393fe5a43bce4e"
+      "hash": "3410bbe94b5a5445c78f47d49f072cbc"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -159,7 +159,7 @@
       "message_ids": [
         35
       ],
-      "hash": "0addbac1b73adfbd3c4469f4bd3f88a5"
+      "hash": "e56d0ce3292d90e047d7a4bd7c7fd6de"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -167,7 +167,7 @@
         36,
         37
       ],
-      "hash": "1fd99b7da731349c2408ba4173b891e3"
+      "hash": "38baab8d7747c2ab75a0d9e5fde53e3a"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -183,7 +183,7 @@
         40,
         41
       ],
-      "hash": "4580c2d774c8642ea75542055b1281ff"
+      "hash": "cf1735e47644d86c7ecab766f0fe1157"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
@@ -204,7 +204,7 @@
       "message_ids": [
         44
       ],
-      "hash": "c6f67618337f6cd580cf576d53b3c48f"
+      "hash": "e1f80501075123570c002c4d2eb7d498"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -212,21 +212,21 @@
         21,
         22
       ],
-      "hash": "fdbaa93ebc32edad5596ca6fc05699b3"
+      "hash": "3db5b79dcf20dd3e251a1303b1186eec"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         69
       ],
-      "hash": "5a37301dd99294d8078d922004ded4ff"
+      "hash": "badafefb1a4a3d31e76c08fe371f6d56"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "b42b3dd777aaeeecdc499dc704981f65"
+      "hash": "86b9af62ef9d4f0da73c164a61585dcf"
     }
   }
 }
