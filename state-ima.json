@@ -19,7 +19,7 @@
       "message_ids": [
         189
       ],
-      "hash": "2be2520147ee78e8cea719e8713fc80f"
+      "hash": "e683c0199c78dc6f90fa2f8b718d126c"
     },
     "huawei": {
       "title": "Huawei",
@@ -41,7 +41,7 @@
       "message_ids": [
         193
       ],
-      "hash": "1b7c56a2035bfb62fd79e50fb34ab0cc"
+      "hash": "47a5f9a7599208bf33521fe5a0ccb0a7"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -66,7 +66,7 @@
         249,
         250
       ],
-      "hash": "620d07e910d159d01ded8aee9cb10ae3"
+      "hash": "74aeeb9069c560e0114abd5c4af668ad"
     },
     "airpods": {
       "title": "AirPods",
@@ -81,7 +81,7 @@
         258,
         259
       ],
-      "hash": "a2998b13530d96a6e2054861c472b3b8"
+      "hash": "24490cab7f9f6e672f958a32502b1c21"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -118,7 +118,7 @@
         272,
         273
       ],
-      "hash": "617b20d094acaada2fd6a96438f78e9e"
+      "hash": "410692e886008f133cbe036d7a31933d"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -160,14 +160,14 @@
       "message_ids": [
         279
       ],
-      "hash": "d5bac9737ec7cd746280b8d5e36fe422"
+      "hash": "0650c1e0e8e1fbd169ec6102a9a15b3a"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         280
       ],
-      "hash": "8493d1958cac27ec32647784c30b3c4d"
+      "hash": "55b4708924b050ea8cd3f0770eb8a08a"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,21 +175,21 @@
         281,
         282
       ],
-      "hash": "70eccd7713f8b675035c805d97eb10fc"
+      "hash": "bd2dd9afffeeb4963633c24e9118c4b4"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "56528d75e40eed9580007f59647c64dc"
+      "hash": "e490ab6d16851b0b020e8dff56f4993c"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "eb5c989484831b2294f8f260ce4a869e"
+      "hash": "9bc11d798bc5ab05c485e49468188fb5"
     },
     "ipad air": {
       "title": "iPad Air",
