@@ -12,14 +12,14 @@
       "message_ids": [
         2
       ],
-      "hash": "a5a825d0c3fb9a2daaa6bbd0e9ee7133"
+      "hash": "dfce01313648bdbd397088399f01d923"
     },
     "honor": {
       "title": "Honor",
       "message_ids": [
         3
       ],
-      "hash": "7e8fa4f70165be9e9a1712571f282f67"
+      "hash": "9c65d82fbb3206e07117106b1c23b854"
     },
     "huawei": {
       "title": "Huawei",
@@ -34,14 +34,14 @@
       "message_ids": [
         5
       ],
-      "hash": "54080bf7973b268b451971d2ca3a67c0"
+      "hash": "580d4a3b9793e8825f05193e3ecd4245"
     },
     "realme": {
       "title": "Realme",
       "message_ids": [
         6
       ],
-      "hash": "8d30d35d02a75b8381d05a89d15ad66a"
+      "hash": "f51cd3713c19438591a229d17b98641d"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "f3ee2d11bb9f59612362cb45d38a4967"
+      "hash": "240c08329f019b1aa73ebb4cc403c325"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         18,
         19
       ],
-      "hash": "865cf7466480f25b3648d3f9dc9963ea"
+      "hash": "ce2ad1c2d501ea8ab007ec57dbe6fb9a"
     },
     "airpods": {
       "title": "AirPods",
@@ -102,7 +102,7 @@
       "message_ids": [
         26
       ],
-      "hash": "3d79399d0a0a4c00be93ed3d415c3885"
+      "hash": "18d297ee2ee0ae04d0c538aaab9a40ae"
     },
     "iphone 15": {
       "title": "iPhone 15",
@@ -110,7 +110,7 @@
         27,
         28
       ],
-      "hash": "92d88040202c349b90bab9b66e9326e8"
+      "hash": "7f77e9d5fd0f266d62fc9a13b5bdfe86"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -138,28 +138,28 @@
       "message_ids": [
         32
       ],
-      "hash": "1ec75e2feef9a29f5596a99701cc6e90"
+      "hash": "630333729a20f25b04dfad7e4c738600"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
       "message_ids": [
         33
       ],
-      "hash": "17e2739aa4fcd02a534eef965f6775a1"
+      "hash": "943f76daaee079f0d43b6e2aa4f7b50f"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
       "message_ids": [
         34
       ],
-      "hash": "90d367271a6912fd21ac7e479bd82c3e"
+      "hash": "711f4a30e145fed6702d1d1baa70e0b8"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         35
       ],
-      "hash": "058c1afc0f1433f53a0ce808b257e227"
+      "hash": "3bff3ed791a7b4509f5a3e2266e13778"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -167,7 +167,7 @@
         36,
         37
       ],
-      "hash": "88a56c10adb630d6e6431b86017c8f3d"
+      "hash": "193a324a42225c4a003375e238134a0b"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -175,7 +175,7 @@
         38,
         39
       ],
-      "hash": "b1d2438e2590257ea0503e718293c006"
+      "hash": "6861e896721b60d43decb13cb3694cea"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -183,21 +183,21 @@
         40,
         41
       ],
-      "hash": "8fcf2fcb573eb75712b63ccbe366a28a"
+      "hash": "9d1db56209fd1977ead7f6e872a7d455"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         42
       ],
-      "hash": "e77b6f4b3e46d405dcffe493731f0e66"
+      "hash": "2e8833caca91beb127e54345bf5de24a"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         43
       ],
-      "hash": "904ca98fe05139f98ecc1c34eb22445f"
+      "hash": "e93032a36a53035d2787f5e48812efb9"
     },
     "macbook pro": {
       "title": "MacBook Pro",
@@ -212,21 +212,21 @@
         21,
         22
       ],
-      "hash": "c6a54cc5f8b661b20e6a099a387cc0b3"
+      "hash": "095486b4dc4fa35a7aa00662dc664e78"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         69
       ],
-      "hash": "fd63c18451c70254640d50fb67f03f37"
+      "hash": "8cfbf13bbe5e11a196ffdb60ca1e9469"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "571ed6f13199bd2d0f398147a2b92d0e"
+      "hash": "47bc0d654e432341190ce5988bd22417"
     }
   }
 }
