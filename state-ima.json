@@ -19,7 +19,7 @@
       "message_ids": [
         189
       ],
-      "hash": "707118a07a369747045929a34ba5f399"
+      "hash": "85a553a747a55a5ed36fc697477f2dde"
     },
     "huawei": {
       "title": "Huawei",
@@ -27,7 +27,7 @@
         190,
         191
       ],
-      "hash": "c6289887ade3d790e0fbd798911f4fcf"
+      "hash": "ae1f522d5addd348bd2190059c2328d6"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -41,7 +41,7 @@
       "message_ids": [
         193
       ],
-      "hash": "3f51439f2e029a807683bcadb22a0df0"
+      "hash": "ecdb7b331b0d3f6eb495258cb6ddd0bc"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "1dad2e0bc46d5a8ff7c8a2395b2dc7be"
+      "hash": "e248392c1cbefcef699d26886a7420b6"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "c55d6a257b7367359cf82ac1a7bf5a18"
+      "hash": "1aaadcf08f80dc54bf7e61d0010cb939"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "1fb4bd3d243ee50ba44e5e24f3d30bec"
+      "hash": "36a40627eec146e60f2b3be412a61787"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -81,7 +81,7 @@
         258,
         259
       ],
-      "hash": "45a84bf7221e96ef60f6a70bd1f6614c"
+      "hash": "aa47838de1ed492271433f4d67232ed2"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -103,14 +103,14 @@
       "message_ids": [
         270
       ],
-      "hash": "1b66117dc5804437fbd4c9c93fa53519"
+      "hash": "921dc2d9127a720aff91198677ef9dec"
     },
     "iphone 14": {
       "title": "iPhone 14",
       "message_ids": [
         271
       ],
-      "hash": "0c8c5f46c938dfb6cd80227261448a56"
+      "hash": "cf37ed772cdf0825613c12250e82359c"
     },
     "iphone 15": {
       "title": "iPhone 15",
@@ -118,7 +118,7 @@
         272,
         273
       ],
-      "hash": "7e4d8d50d0104126d8eb43e88d889d53"
+      "hash": "61f33d110631e66d31223b6e84a807a0"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -139,7 +139,7 @@
       "message_ids": [
         276
       ],
-      "hash": "f31ce7c265187a4cb896035a3aae16e8"
+      "hash": "4d11b81990b248909fa64e386ccf76a7"
     },
     "iphone 16 pro max": {
       "title": "iPhone 16 Pro Max",
@@ -153,7 +153,7 @@
       "message_ids": [
         278
       ],
-      "hash": "79b575f64f8dca2245781d69afe53143"
+      "hash": "0b9cbc9c21105054ef0e5653ce814b1d"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -167,7 +167,7 @@
       "message_ids": [
         280
       ],
-      "hash": "01c2066acda50b181813d4891a520c32"
+      "hash": "00b8fafab8f7cedf160d3c20b5c3ee00"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,21 +175,21 @@
         281,
         282
       ],
-      "hash": "c76ef56c45c157880dc99d0aabe85c1e"
+      "hash": "303cdd9697b0b3c85484464c9bc6b950"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "03564748634d5eb0a78517fd32de51a8"
+      "hash": "a6493629595989a195fbb620bb738791"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "d17d969030d2c2752fb08b88a9e79f4c"
+      "hash": "42062acb493214d62a5dd7b8539d781f"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -197,7 +197,7 @@
         285,
         286
       ],
-      "hash": "6b60768576eb3a05b144b80b111a22f2"
+      "hash": "f7303b66bb11cf10d00e20e31aaa3e8e"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -212,7 +212,7 @@
       "message_ids": [
         289
       ],
-      "hash": "986cce212c06c988bf8c12321dd857e7"
+      "hash": "03daed31658f73bf5e71f0fbf3be31c4"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
@@ -226,7 +226,7 @@
       "message_ids": [
         291
       ],
-      "hash": "432e18ac48ffb5f78f1ee39f537ef6e6"
+      "hash": "02eaeb32b6d7c91e3eaefe24f63dd69f"
     }
   }
 }
