@@ -12,7 +12,7 @@
       "message_ids": [
         188
       ],
-      "hash": "38f87f762dc18eab403ac0d987ce60fa"
+      "hash": "6a0ca5f681d30cd3d30a962a4524d193"
     },
     "honor": {
       "title": "Honor",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "441a233604aeb28a3c0b0749a4083b27"
+      "hash": "1261a5a5ee1dc82b876906d11f78f6a4"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "6d3f3fdb08a9bc0c266979fc20445e53"
+      "hash": "7b2efa9bb273aa6fc74a5117d9c97e10"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "263f45a1e08c373d5a969009fd82f6e0"
+      "hash": "3f4c65f88ebecc5afc0d408bc028f02b"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -81,7 +81,7 @@
         258,
         259
       ],
-      "hash": "8f7c2aef9ee0859854ccc20e896e826d"
+      "hash": "9ca105d30228f7fccb5d370e1273fdb9"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -103,7 +103,7 @@
       "message_ids": [
         270
       ],
-      "hash": "b519dbb9014858f9aa8a2878190adc85"
+      "hash": "4aa530c050c963d207d95db4062716aa"
     },
     "iphone 14": {
       "title": "iPhone 14",
@@ -125,14 +125,14 @@
       "message_ids": [
         274
       ],
-      "hash": "635c5bf65f18e9ace7037c3c4910d825"
+      "hash": "b05615cde0a161d252ae9b218b619c73"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
       "message_ids": [
         275
       ],
-      "hash": "f6f9e8bec5ec9ee725d2e3dd86cd33cf"
+      "hash": "7353e3d493e9cd9f21afb73cd09991a0"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
@@ -153,21 +153,21 @@
       "message_ids": [
         278
       ],
-      "hash": "d829128506bfb206e4d90379680be054"
+      "hash": "e6806bfe90c5b57ad9d3fa2baa474fd1"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
       "message_ids": [
         279
       ],
-      "hash": "5ca4134b9d8980a4355221d4a8a6782c"
+      "hash": "79a32033cdf89792c4ef2793f57e24d8"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         280
       ],
-      "hash": "56efbebf84b9eac3996288e487928d96"
+      "hash": "66c915c65a8c2c5fcda44179d8350bcc"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,21 +175,21 @@
         281,
         282
       ],
-      "hash": "e72f7bdc07f88a30673973638495672f"
+      "hash": "4393fc1cc855eeaa804e438861aaa4c0"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "5a506be33687c6646971bfbc6e0e663e"
+      "hash": "b060665a4047a3899d75b6fe88bfa398"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "b24e494f87511d5e8fb036764d5b8b40"
+      "hash": "6a4c59abf58c3824911b98d64e2accc5"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -197,7 +197,7 @@
         285,
         286
       ],
-      "hash": "5decabcb87055677276136dc34f47afe"
+      "hash": "90bf8f64f337186f0cc59f51f9af41ec"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -205,28 +205,28 @@
         287,
         288
       ],
-      "hash": "76142ea985ac4a787b9504f9f7e378e0"
+      "hash": "a49ae916f63460960894a85720d203e2"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         289
       ],
-      "hash": "7dda10d736302f630043c54fa184857c"
+      "hash": "c62fa152050e5319350803e6df511b97"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         290
       ],
-      "hash": "14a4586a37a70cc719190f4c82013b09"
+      "hash": "b18235455936c32e5648cfce2e9c1af7"
     },
     "macbook pro": {
       "title": "MacBook Pro",
       "message_ids": [
         291
       ],
-      "hash": "087d08178442ceffb104fc0bc7a9d1f8"
+      "hash": "7cc93ae55b0a6211b5b12fa8a0b20294"
     }
   }
 }
