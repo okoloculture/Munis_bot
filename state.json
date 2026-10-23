@@ -19,7 +19,7 @@
       "message_ids": [
         3
       ],
-      "hash": "a1270fe4ffcb7ccb5560d8b994fe54e5"
+      "hash": "fb8d083b421c9be5ca7e87f5bd15ff7f"
     },
     "huawei": {
       "title": "Huawei",
@@ -34,7 +34,7 @@
       "message_ids": [
         5
       ],
-      "hash": "2b4ee9a92c5bb1f93f892f0f336e9d4a"
+      "hash": "570e80aa8595f916888253544c6da930"
     },
     "realme": {
       "title": "Realme",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "1904afa6e14fdee732269fd379f1b459"
+      "hash": "e3daa0a2b235fc785ee1ffc323376c76"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         18,
         19
       ],
-      "hash": "d1a2cf164eb9c2fd0b93be8f6f478a5a"
+      "hash": "7136a3e09e62b6913c9e5e125e9e69d3"
     },
     "airpods": {
       "title": "AirPods",
