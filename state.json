@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "0dca172262ba0e9d6121d67a46399d8d"
+      "hash": "6594ea91f63203cc316d59d91df00626"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         18,
         19
       ],
-      "hash": "99cb7c390425389c555d7a6f67a5144f"
+      "hash": "86dabf6569a0be42c5da4ce95f70e525"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "99206cf461df1730b40b1c07547fa5f9"
+      "hash": "ba2155928a7f80be4f540c1950ba71aa"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -124,7 +124,7 @@
       "message_ids": [
         30
       ],
-      "hash": "0d8de613f192379aa62a0c1ba8656b12"
+      "hash": "207df97fe864ed092c3af5c6ed19e48a"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
@@ -145,7 +145,7 @@
       "message_ids": [
         33
       ],
-      "hash": "20a28b9137c71e8080fabd7b363f75cc"
+      "hash": "675033a59b25d6e479f063e795889f7b"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -167,7 +167,7 @@
         36,
         37
       ],
-      "hash": "d3ca31fb0b342beab4c43f5aee7cfe02"
+      "hash": "ed2bd1b3fe9b4a2f977e41c35fa787b1"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -175,7 +175,7 @@
         38,
         39
       ],
-      "hash": "938d12708808dbb14d13ed958d8e1408"
+      "hash": "856d7debaef84d28656519f8096c0388"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -197,7 +197,7 @@
       "message_ids": [
         43
       ],
-      "hash": "bb2441ff346714f9f8798f74b42c51d9"
+      "hash": "21d0a9922ff6ed2ec1b7d44b62b9d3f3"
     },
     "macbook pro": {
       "title": "MacBook Pro",
@@ -219,14 +219,14 @@
       "message_ids": [
         69
       ],
-      "hash": "b4335850663154adccc8450cae8992af"
+      "hash": "4ddb0bc986c7ea02041c35b68e8e30cd"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "a3c61274f5352d8ca0f273148806f51b"
+      "hash": "ccc6c10651bbb7e91f76bb44a4542d0a"
     }
   }
 }
