@@ -12,14 +12,14 @@
       "message_ids": [
         2
       ],
-      "hash": "2c31d6692b26ce9892a595b48542f0fe"
+      "hash": "ff9b993f142623c9863d1c59cf3b1573"
     },
     "honor": {
       "title": "Honor",
       "message_ids": [
         3
       ],
-      "hash": "2714143b6e7af198da5edb450ff22da4"
+      "hash": "e6a5b63d8c54e575d53e723261eed1d1"
     },
     "huawei": {
       "title": "Huawei",
@@ -34,14 +34,14 @@
       "message_ids": [
         5
       ],
-      "hash": "e03edef97ab7f0d66c22abfd3daf7ac7"
+      "hash": "442cd88b37e641b3e9d317ac7a2f8acf"
     },
     "realme": {
       "title": "Realme",
       "message_ids": [
         6
       ],
-      "hash": "4602f82e26643634acfb9214b88010da"
+      "hash": "041aff0622c8211e27348e7f77214ecd"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "95b26e63f3ea92aa7bbf43baffc9dc90"
+      "hash": "72fe6244fdbebe0af9d13598c2827b7c"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         18,
         19
       ],
-      "hash": "0cd7c5136271de9cd80b7b1d85e791d4"
+      "hash": "c96fd1242de283859eac8a4fb833661c"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         20
       ],
-      "hash": "126fc1c08154847ee73b0ab215052213"
+      "hash": "4f209069486696fb0c5b9a1c24806575"
     },
     "ultra watch": {
       "title": "Ultra Watch",
