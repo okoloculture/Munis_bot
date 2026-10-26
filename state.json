@@ -19,7 +19,7 @@
       "message_ids": [
         3
       ],
-      "hash": "681d65eac0f27ef36592c19737a351a1"
+      "hash": "49ad1bdcd2264b86b94487f5f7d634ea"
     },
     "huawei": {
       "title": "Huawei",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "0a793b81bf9f6d7e0398eed2487b555c"
+      "hash": "7b0a0f2867ef6b5f554bdb0a750530b2"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         18,
         19
       ],
-      "hash": "73be608134a12afeafab063ce9d9f1d2"
+      "hash": "36fab1390dc290d575845f2e12957cc0"
     },
     "airpods": {
       "title": "AirPods",
@@ -145,21 +145,21 @@
       "message_ids": [
         33
       ],
-      "hash": "987ba1a6746fe806378837151caac87c"
+      "hash": "3d8a15347059bbf5c21d741b02e34f8a"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
       "message_ids": [
         34
       ],
-      "hash": "5a7d16652950edbdbb62d51a1e773286"
+      "hash": "a7a37458f64038fbfaff8c6c4323e7e1"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         35
       ],
-      "hash": "9a96645f68c1afb62af6872661324c66"
+      "hash": "947a1fd9e05d053e5b903f3fe96cbbef"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -167,7 +167,7 @@
         36,
         37
       ],
-      "hash": "40752281f4f95a71c929ddfe9d9b4e2f"
+      "hash": "3f96990e1d7279c5ad23098d87cc3c4d"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -212,21 +212,21 @@
         21,
         22
       ],
-      "hash": "5e7c261e70f223d2889416be64c7d45d"
+      "hash": "0e57766e2b1965cc8d1b7c01783b7be8"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         69
       ],
-      "hash": "14a8c201265eb01a4143e50cbcd42789"
+      "hash": "df99ba1c2fe8caac76be1205cc773b42"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "45f99e4a19a103e60e54e955c540d773"
+      "hash": "23c226e1f10a5ba9c508b4ae44ab49a0"
     }
   }
 }
