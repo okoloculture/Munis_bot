@@ -27,7 +27,7 @@
         190,
         191
       ],
-      "hash": "74813f74c205bf9893755611afb8713b"
+      "hash": "48ee94cb5dbd62e4a828fc321edb1b8f"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "1fe02d1c144b133195ac34376c3c3fa8"
+      "hash": "9df6f48fc89abcf638fc6e986f3fc6d7"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "9071bb62a0f8a6d8f2793acb5ecd1d38"
+      "hash": "0892cf0e1ea0baa94ccf9ff2b1a974bc"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "2a51170462c041954991d78f8bb1a5ff"
+      "hash": "e0c1de85ee5e83db5980c82f83a6b0ce"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -153,7 +153,7 @@
       "message_ids": [
         278
       ],
-      "hash": "ee9b4a1ca2492d278db332b599f6c880"
+      "hash": "70369cee8323aa8ecb73876335b73a72"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -189,7 +189,7 @@
       "message_ids": [
         284
       ],
-      "hash": "9fdd51bdd91e2d61a02ec723bd8b1b74"
+      "hash": "9b64f3685568282ac58ccb16df259d7a"
     },
     "ipad air": {
       "title": "iPad Air",
