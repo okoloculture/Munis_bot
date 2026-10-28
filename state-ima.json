@@ -27,21 +27,21 @@
         190,
         191
       ],
-      "hash": "c04394549d0a3338451d7183bc54d95e"
+      "hash": "28f3d67bf71952aab273979132a361eb"
     },
     "oneplus": {
       "title": "OnePlus",
       "message_ids": [
         192
       ],
-      "hash": "e55eaf0a352e53606667e3e4b4de38f1"
+      "hash": "ef45cc1ba717a1564449eb088a3bb127"
     },
     "realme": {
       "title": "Realme",
       "message_ids": [
         193
       ],
-      "hash": "e63f24686f55a4629bb4f266965a4128"
+      "hash": "5abcf8581b6aea5235838305493a5226"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "ef7ad04d6db0dcf57e0023c2daec00f6"
+      "hash": "f3b5250e36615e5808606de5fb9180ce"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         249,
         250
       ],
-      "hash": "ad2d63786c99525926ac136115827cba"
+      "hash": "84f1581770c414b7fdbfd175f8950fef"
     },
     "airpods": {
       "title": "AirPods",
@@ -81,7 +81,7 @@
         258,
         259
       ],
-      "hash": "77486edcfb48c457d34fcd43a77e77f0"
+      "hash": "517953c8d811e559583793ebaad83e08"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -160,14 +160,14 @@
       "message_ids": [
         279
       ],
-      "hash": "ba519466a9ca6abd3bf8eaa83fcd97df"
+      "hash": "2a1dfbfb5b39d6495c7ede09f474dce3"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         280
       ],
-      "hash": "6388be8d93e562af3bde7309edd8b376"
+      "hash": "55ea895d6c55c775771b886b73797a95"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,7 +175,7 @@
         281,
         282
       ],
-      "hash": "69b4ce612b207d60cec5546e56f02518"
+      "hash": "2e8d9c0b0a60a5f49b99bd95335d4a26"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
@@ -205,7 +205,7 @@
         287,
         288
       ],
-      "hash": "44763e611b11ffc8b29e46e2e6ae1b8b"
+      "hash": "23172f528ce91d54cfe4f0e85cb3e2b7"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
