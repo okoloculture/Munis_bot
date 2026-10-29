@@ -12,7 +12,7 @@
       "message_ids": [
         188
       ],
-      "hash": "2c754bb9d95f4d052d9f090e0685d618"
+      "hash": "6cee6618f195adb207dd4e9e88573585"
     },
     "honor": {
       "title": "Honor",
@@ -34,7 +34,7 @@
       "message_ids": [
         192
       ],
-      "hash": "eb622da4d35b7645fe426175ffe287b1"
+      "hash": "2731c194fd4488a1eada30aa5cd37a97"
     },
     "realme": {
       "title": "Realme",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "b4ba7a4ab1a7d7a3405ae06d8c701f00"
+      "hash": "d9c6badcd58810b1aebaaf25f1445338"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "2093f0a93f91f3fb502c3c4da6be2b40"
+      "hash": "988bd85111c5e4bd64d886e9ed06ad80"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -81,7 +81,7 @@
         258,
         259
       ],
-      "hash": "420f09da29a4486eaa803dd375465945"
+      "hash": "9cc073eaddbcad091683aca570aae3c6"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -118,7 +118,7 @@
         272,
         273
       ],
-      "hash": "37ebeaa6997aa108df2f14114ade3a3e"
+      "hash": "e7b3844841c915e07f623604fee9e2e6"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -132,7 +132,7 @@
       "message_ids": [
         275
       ],
-      "hash": "fd64a61a02c04fe15342849d3eaae3d1"
+      "hash": "9abe383ece634e33dea33e408fcd13ec"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
@@ -146,28 +146,28 @@
       "message_ids": [
         277
       ],
-      "hash": "fd7eda7694108ba15e9054e44803fe0f"
+      "hash": "696e88db2a64a69078994905b3e9aad5"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
       "message_ids": [
         278
       ],
-      "hash": "76293dcc8cfa54ca583fff469973355b"
+      "hash": "fadd5823a7ff5b8d083c5816ece3bd02"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
       "message_ids": [
         279
       ],
-      "hash": "e53d75957239950e62c5483ac5c2f7d4"
+      "hash": "317ec2f27e89f798228c82ceb2da8866"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
       "message_ids": [
         280
       ],
-      "hash": "177fe77795a9ee153ae25f25cb452c8e"
+      "hash": "4bdfc56363178c7d1421b795af85ee23"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,21 +175,21 @@
         281,
         282
       ],
-      "hash": "1ed95e7272cce2a729ddd75df8c87ae0"
+      "hash": "f4f2e024f4894260762f0ef35b63d4d7"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "cb866d9beee66f7bfa91718811d75fee"
+      "hash": "f8c1396e02fcf45c07679e2746e98081"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "6bf17587c304690a431da58fc5f24a85"
+      "hash": "fb6ae9fcf4092780267bb92b5d6cfa0e"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -197,7 +197,7 @@
         285,
         286
       ],
-      "hash": "a0f4d514876e054e4fd5e9832cc9bf09"
+      "hash": "290d541aa71b31255127e93f62070a48"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -205,28 +205,28 @@
         287,
         288
       ],
-      "hash": "b669df99ae95acba47ff517f3fb15a47"
+      "hash": "4f46354f5ff271cffd34b6fa5dd4b955"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         289
       ],
-      "hash": "f1df2a2d3b9c1c32bd1ca6a1ab60bb58"
+      "hash": "bd70eeb16eb8e34a1d723f0d018826b5"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         290
       ],
-      "hash": "f70af805bd9b75bd7e375b772b3f6974"
+      "hash": "e9b285fe17bfed73580e3d70219759c5"
     },
     "macbook pro": {
       "title": "MacBook Pro",
       "message_ids": [
         291
       ],
-      "hash": "e6fce02cf1e1bba46279877e5877afa2"
+      "hash": "a7adff2b5c5a2aca96e1bb65d09ce5c1"
     }
   }
 }
