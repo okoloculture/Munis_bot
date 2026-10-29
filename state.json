@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "cf477c3a804d70f698a05949138d046f"
+      "hash": "9fe604fe848397bc9c212085a0716f6e"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         18,
         19
       ],
-      "hash": "3190d201aa6bdb2cdefecef1492d2e2e"
+      "hash": "b9197a427ee6472a3d8e0c1a89f25db9"
     },
     "airpods": {
       "title": "AirPods",
@@ -219,14 +219,14 @@
       "message_ids": [
         69
       ],
-      "hash": "26edb20a73ae11aa3e57a80d3f360253"
+      "hash": "6af9c2b62cc636fd83d8ee1007d6b81f"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "a0bad8495eaa25d32d6ee6f4cc25a465"
+      "hash": "a8f516bae2a140c7f7817d3e4bafaa52"
     }
   }
 }
