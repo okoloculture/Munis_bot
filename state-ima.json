@@ -12,14 +12,14 @@
       "message_ids": [
         188
       ],
-      "hash": "73d3a1e132413688f43bd07acb36d760"
+      "hash": "8d0fbaec4f4010be846165e9506ee394"
     },
     "honor": {
       "title": "Honor",
       "message_ids": [
         189
       ],
-      "hash": "b81e97d7327163bd432a789ff18ce957"
+      "hash": "6e0296d7c29c725be1e988d913cfc004"
     },
     "huawei": {
       "title": "Huawei",
@@ -27,7 +27,7 @@
         190,
         191
       ],
-      "hash": "49ae014797d9fb2ab486315f1c9f2cba"
+      "hash": "f52ebeeec55924dbc9756cc4900b4459"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -41,7 +41,7 @@
       "message_ids": [
         193
       ],
-      "hash": "85abf3c004747de2219480a35a435d76"
+      "hash": "5642a2ac7d966572ac10e843d3e8ea83"
     },
     "xiaomi": {
       "title": "Xiaomi",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "84d4e28df858d52c01cd39344c9b2d96"
+      "hash": "ee929c150fc1560ae5b869ebd19d806a"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "7da5c5d09f455f5ceb428234ae281076"
+      "hash": "c7306070a74bc71ce7156418479963df"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "f6589f560c689565538e6358e6f31131"
+      "hash": "adb9135dafa2e75bf7be11c4a7358386"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -81,7 +81,7 @@
         258,
         259
       ],
-      "hash": "d959e7e46edc47f63b92ca2130276b8f"
+      "hash": "12ef463abd9ed7bdb7974c7d046bb85e"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -118,14 +118,14 @@
         272,
         273
       ],
-      "hash": "acb16e1e673aefe96232b7e8f5881112"
+      "hash": "7a83e1c0978e616a49f8f688f343c5a7"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
       "message_ids": [
         274
       ],
-      "hash": "69f8ce0ee410d69a174ac55c5e2bf8b8"
+      "hash": "e9b9e1d8391233bd45b485af362b2241"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
@@ -153,7 +153,7 @@
       "message_ids": [
         278
       ],
-      "hash": "4cd5cce67bcfc6a5764d646cece710de"
+      "hash": "e99caa0b5ccaef74351f5b4aa0d272e0"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -167,7 +167,7 @@
       "message_ids": [
         280
       ],
-      "hash": "628a9625afbacada1f2aa92284cadcf1"
+      "hash": "cc6deed84b1ae0261d46f11637c172f8"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,21 +175,21 @@
         281,
         282
       ],
-      "hash": "17ac5e7451d9d7e9f872afb51a025534"
+      "hash": "4f0bf33f798ae6e67e9aed23a6c344f1"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "a46028311619892e1fe93d44f9575930"
+      "hash": "1141b07ef7c380c34260ef5712041725"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "fd91daad17a2f7efc8fb9f23468937a5"
+      "hash": "3b8499386f444d80334ba91630e2f584"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -197,7 +197,7 @@
         285,
         286
       ],
-      "hash": "5444fd83a513657ae38880ec0c8c1139"
+      "hash": "c140f8ca51cd6914a1a8070504a8b0f9"
     },
     "ipad pro": {
       "title": "iPad Pro",
@@ -205,21 +205,21 @@
         287,
         288
       ],
-      "hash": "a8d7a2b368e36147c0e4626361b9cc71"
+      "hash": "8fdf464fa8db7ae4cf42847e76972539"
     },
     "ipad mini / 10 / 11": {
       "title": "iPad Mini \\ 10 \\ 11",
       "message_ids": [
         289
       ],
-      "hash": "8390c3f77cdb0dbdc5ee4f3a7b34ca9d"
+      "hash": "742f7765349634dc29c24dc0bb577f10"
     },
     "macbook neo / air": {
       "title": "MacBook Neo \\ Air",
       "message_ids": [
         290
       ],
-      "hash": "79c6d0b806f37fc62b0efdddcfea845c"
+      "hash": "bf6f16a195fc72ae7aa6312422fdc090"
     },
     "macbook pro": {
       "title": "MacBook Pro",
