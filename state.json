@@ -12,7 +12,7 @@
       "message_ids": [
         2
       ],
-      "hash": "d057c19873012ee02768b123bcf9674f"
+      "hash": "73733a3edbc87cd155e8076d01b3f4ae"
     },
     "honor": {
       "title": "Honor",
@@ -34,7 +34,7 @@
       "message_ids": [
         5
       ],
-      "hash": "07bfa9aa19c251ff31dcc0513f39c822"
+      "hash": "0e83b5f7de8e26600d9d5d347dd9f780"
     },
     "realme": {
       "title": "Realme",
@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "5d5b3b12ae536df7333e45b27ee529e9"
+      "hash": "34244f0c9c9d5182e3ee1c6422d9d406"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,7 +66,7 @@
         18,
         19
       ],
-      "hash": "0b40ab5dc8530b806e9b159f77f431f4"
+      "hash": "35f3920be03ac16e4f4ddfa8028c9d56"
     },
     "airpods": {
       "title": "AirPods",
@@ -117,14 +117,14 @@
       "message_ids": [
         29
       ],
-      "hash": "f4f4a971fd13ffe111c218a6a12e5725"
+      "hash": "00bb974cf38ef93b8000dd51e9823fda"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
       "message_ids": [
         30
       ],
-      "hash": "74e38bb23c0a06bec5161b3ae0119f54"
+      "hash": "dfe1344a8db4a2ef5418e5dace465ce2"
     },
     "iphone 16 pro": {
       "title": "iPhone 16 Pro",
@@ -145,7 +145,7 @@
       "message_ids": [
         33
       ],
-      "hash": "4c9e067879c348e8bb280585cf9f12f5"
+      "hash": "73a98fdfba2299aa9d5c7b2a46b9b4b7"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -204,7 +204,7 @@
       "message_ids": [
         44
       ],
-      "hash": "98161026f30daf7674e50f129cb512e2"
+      "hash": "bf0cadd263a87325cefbb5abf60cb615"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -219,14 +219,14 @@
       "message_ids": [
         69
       ],
-      "hash": "35c23c8e6c085c248519fd1181de97c7"
+      "hash": "5ea509e7d97a979dc5da07cca259507e"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         70
       ],
-      "hash": "a647f10052d7450a6cf01b485c6aad2c"
+      "hash": "0610daf8ed6d4923fb0c65fbc104baa0"
     }
   }
 }
