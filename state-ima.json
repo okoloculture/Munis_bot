@@ -27,7 +27,7 @@
         190,
         191
       ],
-      "hash": "d19dee1b2174da18e256db00ee2e34ea"
+      "hash": "bae7353d9d313061f3d4af8c06475e12"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -52,7 +52,7 @@
         197,
         198
       ],
-      "hash": "23ff696e597da7140bde639de179e768"
+      "hash": "11715aa385496d9564fa1853c44d5348"
     },
     "samsung": {
       "title": "Samsung",
@@ -66,14 +66,14 @@
         249,
         250
       ],
-      "hash": "a965db707d45cb245c629f5b00f478f9"
+      "hash": "e731aee3e9a5837839266b838240bd9c"
     },
     "airpods": {
       "title": "AirPods",
       "message_ids": [
         255
       ],
-      "hash": "db05e7d40101f17d3be458278c74318d"
+      "hash": "fbf7652b5d095d5570d5e80d287bf368"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -118,7 +118,7 @@
         272,
         273
       ],
-      "hash": "e7a6465416ce03e79b8ecb24bfb0089f"
+      "hash": "56c5ebee0ed4befacfdd1203e5d3df43"
     },
     "iphone 16e / 16": {
       "title": "iPhone 16e \\ 16",
@@ -167,7 +167,7 @@
       "message_ids": [
         280
       ],
-      "hash": "a35742a366549cb36c8e1e8a65c9ae78"
+      "hash": "14b3be4c40d18f55d15ddcf5aea79658"
     },
     "iphone 17 pro max": {
       "title": "iPhone 17 Pro Max",
@@ -175,21 +175,21 @@
         281,
         282
       ],
-      "hash": "3eba7565851a13839330e0d3273fb4fd"
+      "hash": "1629444da8033dfcf42839d8034a4fd1"
     },
     "iphone 18 pro": {
       "title": "iPhone 18 Pro",
       "message_ids": [
         283
       ],
-      "hash": "2fef0eb0f1bc44a36d372941db18057c"
+      "hash": "042ffd2feef2035c0296f85855825b0c"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         284
       ],
-      "hash": "7a00365f65beb627c4adb97bc1fd0190"
+      "hash": "176d8748148e4d53fdf717bda257e9ce"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -219,7 +219,7 @@
       "message_ids": [
         290
       ],
-      "hash": "4040a28a585ba26c29f1e9fdfb2a3c77"
+      "hash": "2253a7aa7bf3c05aa8672759e18da46a"
     },
     "macbook pro": {
       "title": "MacBook Pro",
