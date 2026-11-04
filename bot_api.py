@@ -22,6 +22,9 @@ API_RETRIES = 3
 MAX_RATE_LIMIT_SLEEP = 90
 
 NOT_MODIFIED = {"not_modified": True}
+# Сообщения, которое правим, в канале больше нет — его удалили руками.
+# Ретрай тут бесполезен, вызывающий код должен забыть этот message_id.
+MESSAGE_GONE = {"message_gone": True}
 
 
 class BotApi:
@@ -55,6 +58,8 @@ class BotApi:
                 description = result.get("description", "")
                 if "message is not modified" in description:
                     return NOT_MODIFIED
+                if "message to edit not found" in description:
+                    return MESSAGE_GONE
 
                 if result.get("error_code") == 429:
                     retry_after = int(result.get("parameters", {}).get("retry_after", 1))
@@ -227,6 +232,12 @@ class BotApi:
             "chat_id": chat_id,
             "message_id": message_id,
             "disable_notification": True,
+        })
+
+    async def unpin_message(self, chat_id: str, message_id: int) -> dict | None:
+        return await self.call("unpinChatMessage", {
+            "chat_id": chat_id,
+            "message_id": message_id,
         })
 
     async def get_me(self) -> dict | None:

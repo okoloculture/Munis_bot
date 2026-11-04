@@ -9,7 +9,7 @@ from pathlib import Path
 
 import aiohttp
 
-from bot_api import NOT_MODIFIED, BotApi
+from bot_api import MESSAGE_GONE, NOT_MODIFIED, BotApi
 from catalog import Category, build_categories, normalize_key
 from config import Config
 from excel import build_caption, build_filename, build_workbook, collect_rows, rows_hash
@@ -140,11 +140,56 @@ def render_category(category: Category, slot: CategorySlot, cfg: Config) -> tupl
     return parts, dropped
 
 
+async def place_message(
+    api: BotApi,
+    cfg: Config,
+    state: State,
+    text: str,
+    *,
+    reply_markup: dict | None,
+    below: tuple[str, ...],
+) -> int | None:
+    """Поставить новое сообщение выше служебных постов канала. Вернуть его message_id.
+
+    Telegram не переставляет сообщения, а свои посты старше 48 часов бот удалить
+    не может даже с правом удаления. Поэтому новое сообщение не уходит в конец
+    канала, а занимает ближайший служебный пост из `below` ("info", "nav").
+    Вытесненный пост на следующем шаге синхронизации так же занимает пост ниже,
+    и в конец канала в итоге уходит только навигация.
+    """
+    for kind in below:
+        message_id = getattr(state, f"{kind}_message_id")
+        if not message_id:
+            continue
+        result = await api.edit_message_text(
+            cfg.target_chat_id, message_id, text, reply_markup=reply_markup,
+        )
+        if result is None:
+            break
+        setattr(state, f"{kind}_message_id", None)
+        setattr(state, f"{kind}_hash", None)
+        if result is MESSAGE_GONE:
+            continue
+        log.info("Сообщение %s было служебным (%s), теперь занято новым контентом", message_id, kind)
+        if kind == "nav" and cfg.nav_pin:
+            if await api.unpin_message(cfg.target_chat_id, message_id) is None:
+                log.warning("Не удалось открепить бывшую навигацию (message_id=%s)", message_id)
+        return message_id
+
+    result = await api.send_message(
+        cfg.target_chat_id, text,
+        disable_notification=cfg.disable_notification,
+        reply_markup=reply_markup,
+    )
+    return int(result["message_id"]) if result is not None else None
+
+
 async def publish_category(
     api: BotApi,
     cfg: Config,
     category: Category,
     slot: CategorySlot,
+    state: State,
 ) -> bool:
     """Обновить или создать сообщения одной категории. True, если что-то изменилось."""
     parts, dropped = render_category(category, slot, cfg)
@@ -175,6 +220,19 @@ async def publish_category(
             result = await api.edit_message_text(
                 cfg.target_chat_id, message_id, text, reply_markup=keyboard,
             )
+            if result is MESSAGE_GONE:
+                # Часть удалили из канала руками. Забываем её и раскладываем
+                # категорию заново: сначала по оставшимся сообщениям, а что
+                # не влезет — новым сообщением в конец канала.
+                log.warning(
+                    "'%s' часть %d (message_id=%d) удалена из канала — "
+                    "раскладываю категорию по оставшимся сообщениям",
+                    category.title, index + 1, message_id,
+                )
+                slot.message_ids.remove(message_id)
+                slot.content_hash = None
+                await publish_category(api, cfg, category, slot, state)
+                return True
             if result is None:
                 log.warning(
                     "Не удалось отредактировать '%s' часть %d (message_id=%d)",
@@ -186,19 +244,17 @@ async def publish_category(
             log.info("Обновлено: '%s' часть %d/%d", category.title, index + 1, len(parts))
             await asyncio.sleep(EDIT_DELAY_SECONDS)
         elif cfg.allow_create:
-            result = await api.send_message(
-                cfg.target_chat_id, text,
-                disable_notification=cfg.disable_notification,
-                reply_markup=keyboard,
+            message_id = await place_message(
+                api, cfg, state, text, reply_markup=keyboard, below=("info", "nav"),
             )
-            if result is None:
+            if message_id is None:
                 log.warning("Не удалось создать сообщение для '%s'", category.title)
                 return changed
-            slot.message_ids.append(int(result["message_id"]))
+            slot.message_ids.append(message_id)
             changed = True
             log.info(
                 "Создано: '%s' часть %d/%d (message_id=%s)",
-                category.title, index + 1, len(parts), result["message_id"],
+                category.title, index + 1, len(parts), message_id,
             )
             await asyncio.sleep(CREATE_DELAY_SECONDS)
         else:
@@ -325,6 +381,14 @@ async def publish_info(api: BotApi, cfg: Config, state: State) -> bool:
 
     if state.info_message_id:
         result = await api.edit_message_text(cfg.target_chat_id, state.info_message_id, text)
+        if result is MESSAGE_GONE:
+            log.warning(
+                "Информационное сообщение (message_id=%s) удалено из канала — создаю заново",
+                state.info_message_id,
+            )
+            state.info_message_id = None
+            state.info_hash = None
+            return await publish_info(api, cfg, state) or True
         if result is None:
             log.warning(
                 "Не удалось обновить информационное сообщение (message_id=%s)",
@@ -335,14 +399,12 @@ async def publish_info(api: BotApi, cfg: Config, state: State) -> bool:
         log.info("Информационное сообщение обновлено (message_id=%s)", state.info_message_id)
         return True
 
-    result = await api.send_message(
-        cfg.target_chat_id, text, disable_notification=cfg.disable_notification,
-    )
-    if result is None:
+    message_id = await place_message(api, cfg, state, text, reply_markup=None, below=("nav",))
+    if message_id is None:
         log.warning("Не удалось создать информационное сообщение")
         return False
 
-    state.info_message_id = int(result["message_id"])
+    state.info_message_id = message_id
     state.info_hash = new_hash
     log.info("Информационное сообщение создано (message_id=%s)", state.info_message_id)
     return True
@@ -451,6 +513,14 @@ async def publish_nav(api: BotApi, cfg: Config, state: State) -> bool:
         result = await api.edit_message_text(
             cfg.target_chat_id, state.nav_message_id, text, reply_markup=keyboard,
         )
+        if result is MESSAGE_GONE:
+            log.warning(
+                "Навигация (message_id=%s) удалена из канала — создаю заново",
+                state.nav_message_id,
+            )
+            state.nav_message_id = None
+            state.nav_hash = None
+            return await publish_nav(api, cfg, state) or True
         if result is None:
             log.warning("Не удалось обновить навигацию (message_id=%s)", state.nav_message_id)
             return False
@@ -508,7 +578,7 @@ async def sync_once(
         slot = state.slots.setdefault(key, CategorySlot(title=category.title))
         slot.title = category.title
         try:
-            if await publish_category(api, cfg, category, slot):
+            if await publish_category(api, cfg, category, slot, state):
                 save_state(state, state_path)
         except Exception:
             log.exception("Сбой на категории '%s'", category.title)

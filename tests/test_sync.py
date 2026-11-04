@@ -5,6 +5,8 @@ import pytest
 from catalog import Category, CategoryPart
 from config import Config
 from markup import parse_tiers
+import sync
+from bot_api import MESSAGE_GONE
 from state import CategorySlot, State
 from sync import (
     build_excel,
@@ -13,6 +15,9 @@ from sync import (
     content_hash,
     is_allowed,
     planned_keys,
+    publish_category,
+    publish_info,
+    publish_nav,
     read_info_text,
     render_category,
 )
@@ -237,3 +242,151 @@ def test_ensure_nav_is_last_noop_when_lowest():
     import asyncio
     state = _state_with({"a": [2]}, info=48, nav=49)
     assert asyncio.run(ensure_nav_is_last(None, make_config(), state)) is False
+
+
+class GoneApi:
+    """Фейковый Bot API: сообщения из `gone` удалены из канала руками."""
+
+    def __init__(self, gone: set[int], next_id: int = 100):
+        self.gone = gone
+        self.next_id = next_id
+        self.edited: list[int] = []
+        self.sent: list[int] = []
+
+    async def edit_message_text(self, chat, mid, text, reply_markup=None):
+        if mid in self.gone:
+            return MESSAGE_GONE
+        self.edited.append(mid)
+        return {"message_id": mid}
+
+    async def send_message(self, chat, text, disable_notification=True, reply_markup=None):
+        mid = self.next_id
+        self.next_id += 1
+        self.sent.append(mid)
+        return {"message_id": mid}
+
+    async def pin_message(self, chat, mid):
+        self.pinned = mid
+        return {}
+
+    async def unpin_message(self, chat, mid):
+        self.unpinned = mid
+        return {}
+
+
+@pytest.fixture
+def no_delays(monkeypatch):
+    monkeypatch.setattr(sync, "EDIT_DELAY_SECONDS", 0)
+    monkeypatch.setattr(sync, "CREATE_DELAY_SECONDS", 0)
+
+
+def test_publish_category_folds_deleted_part_into_remaining(no_delays):
+    import asyncio
+    category = make_category("Huawei", [f"Item {i} - {10000 + i}" for i in range(10)])
+    slot = CategorySlot(title="Huawei", message_ids=[4, 76])
+    api = GoneApi(gone={76})
+
+    assert asyncio.run(publish_category(api, make_config(allow_create=True), category, slot, State())) is True
+    assert slot.message_ids == [4]
+    assert api.sent == []
+    assert slot.content_hash is not None
+
+
+def test_publish_category_recreates_deleted_part_when_it_does_not_fit(no_delays):
+    import asyncio
+    category = make_category("Samsung", [f"Item number {i} - {10000 + i}" for i in range(300)])
+    slot = CategorySlot(title="Samsung", message_ids=[12, 13])
+    api = GoneApi(gone={13})
+
+    assert asyncio.run(publish_category(api, make_config(allow_create=True), category, slot, State())) is True
+    assert slot.message_ids == [12, 100]
+    assert api.sent == [100]
+
+
+def test_publish_category_drops_all_deleted_parts(no_delays):
+    import asyncio
+    category = make_category("Honor", ["Item - 10000"])
+    slot = CategorySlot(title="Honor", message_ids=[3, 4])
+    api = GoneApi(gone={3, 4})
+
+    assert asyncio.run(publish_category(api, make_config(allow_create=True), category, slot, State())) is True
+    assert slot.message_ids == [100]
+
+
+def test_publish_info_recreates_deleted_message(tmp_path):
+    import asyncio
+    info = tmp_path / "info.html"
+    info.write_text("Привет", encoding="utf-8")
+    cfg = make_config(info_enabled=True, info_file=info)
+    state = _state_with({}, info=77)
+    state.info_hash = "stale"
+    api = GoneApi(gone={77})
+
+    assert asyncio.run(publish_info(api, cfg, state)) is True
+    assert state.info_message_id == 100
+
+
+def test_publish_nav_recreates_deleted_message():
+    import asyncio
+    state = _state_with({"a": [2]}, nav=78)
+    state.nav_hash = "stale"
+    api = GoneApi(gone={78})
+
+    assert asyncio.run(publish_nav(api, make_config(categories=("a",)), state)) is True
+    assert state.nav_message_id == 100
+
+
+def test_new_price_part_takes_info_slot_instead_of_landing_below_nav(no_delays):
+    import asyncio
+    category = make_category("Samsung", [f"Item number {i} - {10000 + i}" for i in range(300)])
+    slot = CategorySlot(title="Samsung", message_ids=[12, 13])
+    state = _state_with({"Samsung": [12, 13]}, info=77, nav=78)
+    state.info_hash = "info"
+    api = GoneApi(gone={13})
+
+    assert asyncio.run(publish_category(api, make_config(allow_create=True), category, slot, state)) is True
+    assert slot.message_ids == [12, 77]
+    assert api.sent == []
+    assert state.info_message_id is None and state.info_hash is None
+    assert state.nav_message_id == 78
+
+
+def test_info_takes_nav_slot_and_nav_goes_to_the_end(tmp_path):
+    import asyncio
+    info = tmp_path / "info.html"
+    info.write_text("Привет", encoding="utf-8")
+    cfg = make_config(info_enabled=True, info_file=info, categories=("a",))
+    state = _state_with({"a": [2, 77]}, nav=78)
+    state.nav_hash = "nav"
+    api = GoneApi(gone=set())
+
+    assert asyncio.run(publish_info(api, cfg, state)) is True
+    assert state.info_message_id == 78
+    assert state.nav_message_id is None
+    assert api.unpinned == 78
+
+    assert asyncio.run(publish_nav(api, cfg, state)) is True
+    assert state.nav_message_id == 100
+    assert api.pinned == 100
+
+
+def test_place_message_skips_deleted_service_post():
+    import asyncio
+    state = _state_with({}, info=77, nav=78)
+    api = GoneApi(gone={77})
+
+    mid = asyncio.run(sync.place_message(
+        api, make_config(), state, "text", reply_markup=None, below=("info", "nav"),
+    ))
+    assert mid == 78
+    assert state.info_message_id is None and state.nav_message_id is None
+
+
+def test_place_message_sends_new_when_no_service_posts():
+    import asyncio
+    api = GoneApi(gone=set())
+    mid = asyncio.run(sync.place_message(
+        api, make_config(), State(), "text", reply_markup=None, below=("info", "nav"),
+    ))
+    assert mid == 100
+    assert api.sent == [100]
