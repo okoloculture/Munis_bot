@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "nav_message_id": 78,
-  "nav_hash": "55222842128296a5109907d530e5cde4",
+  "nav_message_id": 97,
+  "nav_hash": null,
   "excel_message_id": null,
   "excel_hash": null,
-  "info_message_id": 77,
-  "info_hash": "f9b5e6f207f6052d566012df04931fbf",
+  "info_message_id": 78,
+  "info_hash": null,
   "slots": {
     "google": {
       "title": "Google",
@@ -25,9 +25,9 @@
       "title": "Huawei",
       "message_ids": [
         4,
-        76
+        77
       ],
-      "hash": "e56ff34ed5d17853c029ef2f7f19f0fd"
+      "hash": null
     },
     "oneplus": {
       "title": "OnePlus",
@@ -78,10 +78,9 @@
     "ultra watch": {
       "title": "Ultra Watch",
       "message_ids": [
-        23,
-        87
+        23
       ],
-      "hash": "633d8400caf64f5e9a3819d3899594e9"
+      "hash": null
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",

@@ -86,10 +86,9 @@
     "ultra watch": {
       "title": "Ultra Watch",
       "message_ids": [
-        261,
-        295
+        261
       ],
-      "hash": "6fafcefd22a7d671be450c3e65ee11b2"
+      "hash": null
     },
     "iphone 11 / 12": {
       "title": "iPhone 11 \\ 12",
