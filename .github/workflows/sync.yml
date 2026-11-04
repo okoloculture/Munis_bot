@@ -71,4 +71,27 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state.json state-ima.json
           git commit -m "chore: обновление состояния каналов"
+          # GitHub временами отвечает на пуш 500 (fatal error in commit_refs).
+          # Потерянный state после прогона, создавшего сообщения, означает
+          # дубли в канале на следующем прогоне, поэтому пуш повторяем.
+          for delay in 10 20 40 80; do
+            if git push; then
+              exit 0
+            fi
+            echo "пуш не прошёл, повтор через ${delay} с"
+            sleep "$delay"
+            git pull --rebase
+          done
           git push
+
+      # Если state так и не запушился, он остаётся в артефакте: его можно
+      # закоммитить руками до следующего прогона и не получить дублей.
+      - name: Состояние в артефакты при сбое
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: state-unsaved
+          path: |
+            state.json
+            state-ima.json
+          retention-days: 7
