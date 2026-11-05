@@ -1,0 +1,93 @@
+# Канал «Price» на общем движке. Источник и наценка — как у MUNIS_PRICE.
+source_channel: opt_uniseil
+
+# Канал ведёт тот же бот, что и MUNIS (@redacher1bot), поэтому токен общий
+bot_token_env: BOT_TOKEN
+
+# Канал приватный: username нет, ссылки в навигации будут вида t.me/c/
+target_chat_id: "-1004374090427"
+target_channel: null
+
+# Посты категорий — таблицами Rich Messages (Bot API 10.1+): одна категория,
+# один пост, шапка «Категория | Цена». Обычный текст — message_format: text.
+message_format: rich
+
+# Наценка как у MUNIS_PRICE, в рублях
+markup_tiers:
+  - {up_to: 10000, add: 2000}
+  - {up_to: 15000, add: 3000}
+  - {up_to: 40000, add: 4000}
+  - {up_to: 80000, add: 5000}
+  - {up_to: 110000, add: 6000}
+  - {up_to: 135000, add: 7000}
+  - {up_to: 160000, add: 8000}
+  - {up_to: 185000, add: 9000}
+  - {up_to: null, add: 13000}
+
+# В rich-формате не используется: цена идёт отдельной колонкой таблицы
+price_format: "{name} — {price} ₽"
+round_to_nearest: 0
+
+check_interval: 3600
+max_scan_pages: 8
+
+categories:
+  - Google
+  - Honor
+  - Huawei
+  - OnePlus
+  - Realme
+  - Xiaomi
+  - Samsung
+  - AirPods
+  - Watch SE \ S10 \ S11 \ S12
+  - Ultra Watch
+  - iPhone 11 \ 12
+  - iPhone 13
+  - iPhone 14
+  - iPhone 15
+  - iPhone 16e \ 16
+  - iPhone 16 Plus
+  - iPhone 16 Pro
+  - iPhone 16 Pro Max
+  - iPhone 17e \ 17
+  - iPhone 17 Air
+  - iPhone 17 Pro
+  - iPhone 17 Pro Max
+  - iPhone 18 Pro
+  - iPhone 18 Pro Max
+  - iPad Air
+  - iPad Pro
+  - iPad Mini \ 10 \ 11
+  - MacBook Neo \ Air
+  - MacBook Pro
+
+deny_categories:
+  - iPhone (ASIS)
+
+allow_create: true
+disable_notification: true
+
+nav:
+  enabled: true
+  text: "ВЫБЕРИТЕ НУЖНУЮ КАТЕГОРИЮ✅"
+  columns: 3
+  row_width: 30
+  pin: true
+  button_style: default
+
+order_button:
+  text: "ЗАКАЗАТЬ"
+  url: "https://t.me/Art_Dev15"
+  style: primary
+
+# Текста от клиента пока нет. Появится — положить в info-price.html и включить.
+info_message:
+  enabled: false
+  file: "info-price.html"
+
+excel:
+  enabled: true
+  publish: false
+  output_dir: "_excel_price"
+  filename: "Прайс_Price_{date}.xlsx"

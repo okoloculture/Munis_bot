@@ -9,6 +9,7 @@ venv/
 _dryrun/
 _excel/
 _excel_ima/
+_excel_price/
 _backup_munis_store.json
 
 # state.json НЕ игнорируется: его коммитит workflow, это память бота

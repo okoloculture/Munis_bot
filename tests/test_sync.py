@@ -390,3 +390,67 @@ def test_place_message_sends_new_when_no_service_posts():
     ))
     assert mid == 100
     assert api.sent == [100]
+
+
+class RichApi(GoneApi):
+    """Фейковый Bot API, который различает обычные и rich-вызовы."""
+
+    def __init__(self, gone: set[int] = frozenset(), next_id: int = 100):
+        super().__init__(set(gone), next_id)
+        self.rich_edited: list[int] = []
+        self.rich_sent: list[int] = []
+
+    async def edit_rich_message(self, chat, mid, html, reply_markup=None):
+        if mid in self.gone:
+            return MESSAGE_GONE
+        self.rich_edited.append(mid)
+        return {"message_id": mid}
+
+    async def send_rich_message(self, chat, html, disable_notification=True, reply_markup=None):
+        mid = self.next_id
+        self.next_id += 1
+        self.rich_sent.append(mid)
+        return {"message_id": mid}
+
+
+def test_rich_category_gets_one_post_regardless_of_source_parts(no_delays):
+    import asyncio
+    parts = [
+        CategoryPart(message_id=i, part_no=i, declared_total=8,
+                     lines=tuple(f"Item {i}.{j} - {10000 + j}" for j in range(30)))
+        for i in range(1, 9)
+    ]
+    category = Category(title="Samsung", key="samsung", parts=parts)
+    slot = CategorySlot(title="Samsung")
+    api = RichApi()
+    cfg = make_config(allow_create=True, rich_messages=True)
+
+    assert asyncio.run(publish_category(api, cfg, category, slot, State())) is True
+    assert api.rich_sent == [100]
+    assert api.sent == []
+    assert slot.message_ids == [100]
+
+
+def test_rich_category_is_edited_with_rich_markup(no_delays):
+    import asyncio
+    category = make_category("AirPods", ["AirPods 4 - 8300"])
+    slot = CategorySlot(title="AirPods", message_ids=[20])
+    api = RichApi()
+
+    assert asyncio.run(publish_category(api, make_config(rich_messages=True), category, slot, State())) is True
+    assert api.rich_edited == [20]
+    assert api.edited == []
+
+
+def test_rich_new_part_takes_plain_info_post(no_delays):
+    import asyncio
+    category = make_category("Dyson", ["V11 Iron Red - 39100"])
+    slot = CategorySlot(title="Dyson")
+    state = _state_with({}, info=77, nav=78)
+    api = RichApi()
+    cfg = make_config(allow_create=True, rich_messages=True)
+
+    assert asyncio.run(publish_category(api, cfg, category, slot, state)) is True
+    assert slot.message_ids == [77]
+    assert api.rich_edited == [77]
+    assert state.info_message_id is None

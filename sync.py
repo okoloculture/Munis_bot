@@ -15,6 +15,7 @@ from config import Config
 from excel import build_caption, build_filename, build_workbook, collect_rows, rows_hash
 from nav import build_keyboard, make_button, message_link, render_text
 from renderer import TELEGRAM_MAX_LEN, build_messages, count_price_lines
+from rich_renderer import build_rich_messages
 from state import CategorySlot, State, save_state
 from tme_scraper import fetch_messages
 
@@ -106,18 +107,26 @@ def _footer(dropped: int) -> str:
     return f"… ещё {dropped} позиций — уточняйте у менеджера"
 
 
+def _build(cfg: Config, title: str, lines: list[str], slots: int) -> list[str]:
+    if cfg.rich_messages:
+        return build_rich_messages(title, lines, slots, cfg.tiers, cfg.round_to_nearest)
+    return build_messages(
+        title, lines, slots, cfg.tiers, cfg.round_to_nearest, price_format=cfg.price_format,
+    )
+
+
 def render_category(category: Category, slot: CategorySlot, cfg: Config) -> tuple[list[str], int]:
     """Собрать сообщения категории.
 
     Число частей берётся из уже занятых слотов, а для новой категории — из
-    структуры источника. Возвращает (сообщения, число скрытых позиций).
+    структуры источника. Rich-пост вмещает в восемь раз больше, поэтому новой
+    категории в rich-формате отводится один пост. Возвращает (сообщения,
+    число скрытых позиций).
     """
-    slots = len(slot.message_ids) or max(1, len(category.parts))
+    fresh_slots = 1 if cfg.rich_messages else max(1, len(category.parts))
+    slots = len(slot.message_ids) or fresh_slots
     lines = category.lines
-    parts = build_messages(
-        category.title, lines, slots, cfg.tiers, cfg.round_to_nearest,
-        price_format=cfg.price_format,
-    )
+    parts = _build(cfg, category.title, lines, slots)
 
     if len(parts) <= slots or cfg.allow_create:
         return parts, 0
@@ -132,10 +141,7 @@ def render_category(category: Category, slot: CategorySlot, cfg: Config) -> tupl
             if removed.strip():
                 dropped += 1
         body = kept + ["", _footer(dropped)] if kept else [_footer(dropped)]
-        parts = build_messages(
-            category.title, body, slots, cfg.tiers, cfg.round_to_nearest,
-            price_format=cfg.price_format,
-        )
+        parts = _build(cfg, category.title, body, slots)
 
     return parts, dropped
 
@@ -148,6 +154,7 @@ async def place_message(
     *,
     reply_markup: dict | None,
     below: tuple[str, ...],
+    rich: bool = False,
 ) -> int | None:
     """Поставить новое сообщение выше служебных постов канала. Вернуть его message_id.
 
@@ -156,14 +163,18 @@ async def place_message(
     канала, а занимает ближайший служебный пост из `below` ("info", "nav").
     Вытесненный пост на следующем шаге синхронизации так же занимает пост ниже,
     и в конец канала в итоге уходит только навигация.
+
+    rich=True — text это HTML rich-сообщения; обычный служебный пост
+    правкой превращается в rich, это проверено на живом канале.
     """
+    edit = api.edit_rich_message if rich else api.edit_message_text
+    send = api.send_rich_message if rich else api.send_message
+
     for kind in below:
         message_id = getattr(state, f"{kind}_message_id")
         if not message_id:
             continue
-        result = await api.edit_message_text(
-            cfg.target_chat_id, message_id, text, reply_markup=reply_markup,
-        )
+        result = await edit(cfg.target_chat_id, message_id, text, reply_markup=reply_markup)
         if result is None:
             break
         setattr(state, f"{kind}_message_id", None)
@@ -176,7 +187,7 @@ async def place_message(
                 log.warning("Не удалось открепить бывшую навигацию (message_id=%s)", message_id)
         return message_id
 
-    result = await api.send_message(
+    result = await send(
         cfg.target_chat_id, text,
         disable_notification=cfg.disable_notification,
         reply_markup=reply_markup,
@@ -193,7 +204,8 @@ async def publish_category(
 ) -> bool:
     """Обновить или создать сообщения одной категории. True, если что-то изменилось."""
     parts, dropped = render_category(category, slot, cfg)
-    empty = sum(1 for part in parts if "\n" not in part)
+    # Пустая часть — только заголовок: в тексте нет переноса, в таблице нет строк.
+    empty = sum(1 for part in parts if "\n" not in part and "<td" not in part)
     if empty:
         log.warning(
             "Категория '%s': %d сообщений останутся пустыми — в источнике стало меньше позиций",
@@ -213,13 +225,12 @@ async def publish_category(
         return False
 
     changed = False
+    edit = api.edit_rich_message if cfg.rich_messages else api.edit_message_text
 
     for index, text in enumerate(parts):
         if index < len(slot.message_ids):
             message_id = slot.message_ids[index]
-            result = await api.edit_message_text(
-                cfg.target_chat_id, message_id, text, reply_markup=keyboard,
-            )
+            result = await edit(cfg.target_chat_id, message_id, text, reply_markup=keyboard)
             if result is MESSAGE_GONE:
                 # Часть удалили из канала руками. Забываем её и раскладываем
                 # категорию заново: сначала по оставшимся сообщениям, а что
@@ -246,6 +257,7 @@ async def publish_category(
         elif cfg.allow_create:
             message_id = await place_message(
                 api, cfg, state, text, reply_markup=keyboard, below=("info", "nav"),
+                rich=cfg.rich_messages,
             )
             if message_id is None:
                 log.warning("Не удалось создать сообщение для '%s'", category.title)

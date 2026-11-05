@@ -69,6 +69,8 @@ class Config:
     excel_button_text: str
     excel_button_style: str
     proxy: str | None
+    # Посты категорий таблицами Rich Messages вместо обычного текста.
+    rich_messages: bool = False
 
 
 def _require(raw: dict, key: str) -> str:
@@ -206,6 +208,10 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
 
     target_channel = _optional_str(raw, "target_channel")
 
+    message_format = raw.get("message_format", "text")
+    if message_format not in ("text", "rich"):
+        raise ConfigError("'message_format' должен быть 'text' или 'rich'")
+
     return Config(
         bot_token=token,
         source_channel=_require(raw, "source_channel").lstrip("@"),
@@ -236,4 +242,5 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
         excel_button_text=str(excel_raw.get("button_text") or "Прайс EXCEL"),
         excel_button_style=excel_style,
         proxy=os.environ.get("TG_PROXY") or os.environ.get("T_ME_PROXY") or None,
+        rich_messages=message_format == "rich",
     )

@@ -221,6 +221,46 @@ class BotApi:
             payload["reply_markup"] = reply_markup
         return await self.call("sendMessage", payload)
 
+    async def send_rich_message(
+        self,
+        chat_id: str,
+        html_text: str,
+        *,
+        disable_notification: bool = True,
+        reply_markup: dict | None = None,
+    ) -> dict | None:
+        """Отправить rich-сообщение (таблицы, заголовки); разметка — HTML."""
+        payload = {
+            "chat_id": chat_id,
+            "rich_message": {"html": html_text},
+            "disable_notification": disable_notification,
+        }
+        if reply_markup is not None:
+            payload["reply_markup"] = reply_markup
+        return await self.call("sendRichMessage", payload)
+
+    async def edit_rich_message(
+        self,
+        chat_id: str,
+        message_id: int,
+        html_text: str,
+        *,
+        reply_markup: dict | None = None,
+    ) -> dict | None:
+        """Заменить содержимое сообщения rich-разметкой.
+
+        Проверено на живом канале: так правятся и rich-, и обычные сообщения —
+        обычное при этом становится rich.
+        """
+        payload = {
+            "chat_id": chat_id,
+            "message_id": message_id,
+            "rich_message": {"html": html_text},
+        }
+        if reply_markup is not None:
+            payload["reply_markup"] = reply_markup
+        return await self.call("editMessageText", payload)
+
     async def delete_message(self, chat_id: str, message_id: int) -> dict | None:
         return await self.call("deleteMessage", {
             "chat_id": chat_id,

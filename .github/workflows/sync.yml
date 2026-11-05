@@ -1,6 +1,6 @@
 name: sync
 
-# Бот читает опт и правит посты в двух каналах: MUNIS_PRICE и IStore ima.
+# Бот читает опт и правит посты в трёх каналах: MUNIS_PRICE, IStore ima и Price.
 # Своего сервера не нужно: прогон занимает от десяти секунд, когда ничего
 # не изменилось, до трёх минут, когда поменялся весь каталог.
 on:
@@ -49,6 +49,14 @@ jobs:
           BOT_TOKEN_IMA: ${{ secrets.BOT_TOKEN_IMA }}
         run: python main.py --once --config config-ima.yaml --state state-ima.json
 
+      # Канал Price ведёт тот же бот, что и MUNIS, поэтому токен общий.
+      # Посты — таблицами Rich Messages (message_format: rich в конфиге).
+      - name: Синхронизация Price
+        continue-on-error: true
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: python main.py --once --config config-price.yaml --state state-price.json
+
       - name: Выгрузка прайсов в артефакты
         uses: actions/upload-artifact@v7
         with:
@@ -56,6 +64,7 @@ jobs:
           path: |
             _excel/*.xlsx
             _excel_ima/*.xlsx
+            _excel_price/*.xlsx
           if-no-files-found: warn
           retention-days: 14
 
@@ -63,13 +72,19 @@ jobs:
       # Без коммита обратно следующий прогон опубликовал бы каталог заново.
       - name: Сохранение state.json
         run: |
-          if git diff --quiet -- state.json state-ima.json; then
+          # state-price.json до первого прогона не существует: git diff его не видит,
+          # поэтому новые файлы проверяем через status.
+          if [ -z "$(git status --porcelain -- state.json state-ima.json state-price.json)" ]; then
             echo "состояние без изменений"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json state-ima.json
+          # git add падает на несуществующем файле, а state нового канала
+          # может не появиться, если его шаг упал до первой записи.
+          for f in state.json state-ima.json state-price.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           git commit -m "chore: обновление состояния каналов"
           # GitHub временами отвечает на пуш 500 (fatal error in commit_refs).
           # Потерянный state после прогона, создавшего сообщения, означает
@@ -94,4 +109,5 @@ jobs:
           path: |
             state.json
             state-ima.json
+            state-price.json
           retention-days: 7
