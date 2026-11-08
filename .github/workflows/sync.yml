@@ -36,26 +36,28 @@ jobs:
       - name: Установка зависимостей
         run: pip install --quiet -r requirements.txt
 
+      # Канал Price ведёт тот же бот, что и MUNIS, поэтому токен общий.
+      # Посты — таблицами Rich Messages (message_format: rich в конфиге).
+      # Идёт первым: клиент просил получать цены не позже MUNIS. Каналы
+      # обновляются по очереди, по ~3,5 минуты на канал.
+      - name: Синхронизация Price
+        continue-on-error: true
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: python main.py --once --config config-price.yaml --state state-price.json
+
       - name: Синхронизация MUNIS_PRICE
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: python main.py --once
 
-      # Второй канал на том же коде: свой конфиг, своё состояние, свой бот.
+      # Канал ima на том же коде: свой конфиг, своё состояние, свой бот.
       # Падение одного канала не должно ронять другой, поэтому continue-on-error.
       - name: Синхронизация IStore ima
         continue-on-error: true
         env:
           BOT_TOKEN_IMA: ${{ secrets.BOT_TOKEN_IMA }}
         run: python main.py --once --config config-ima.yaml --state state-ima.json
-
-      # Канал Price ведёт тот же бот, что и MUNIS, поэтому токен общий.
-      # Посты — таблицами Rich Messages (message_format: rich в конфиге).
-      - name: Синхронизация Price
-        continue-on-error: true
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        run: python main.py --once --config config-price.yaml --state state-price.json
 
       - name: Выгрузка прайсов в артефакты
         uses: actions/upload-artifact@v7
