@@ -12,6 +12,10 @@ target_channel: null
 # один пост, шапка «Категория | Цена». Обычный текст — message_format: text.
 message_format: rich
 
+# Названия для покупателя: «iPhone 17e 256GB …» вместо «17e 256GB …»,
+# «MacBook Neo Citrus A18 Pro 8/256 (MHFD4)» вместо «MHFD4 Neo … (6/5/8/256)»
+tidy_names: true
+
 # Наценка как у MUNIS_PRICE, в рублях
 markup_tiers:
   - {up_to: 10000, add: 2000}
@@ -42,10 +46,6 @@ categories:
   - AirPods
   - Watch SE \ S10 \ S11 \ S12
   - Ultra Watch
-  - iPhone 11 \ 12
-  - iPhone 13
-  - iPhone 14
-  - iPhone 15
   - iPhone 16e \ 16
   - iPhone 16 Plus
   - iPhone 16 Pro
@@ -62,15 +62,20 @@ categories:
   - MacBook Neo \ Air
   - MacBook Pro
 
+# iPhone 15 и старше клиенту не нужны
 deny_categories:
   - iPhone (ASIS)
+  - iPhone 11 \ 12
+  - iPhone 13
+  - iPhone 14
+  - iPhone 15
 
 allow_create: true
 disable_notification: true
 
 nav:
   enabled: true
-  text: "ВЫБЕРИТЕ НУЖНУЮ КАТЕГОРИЮ✅"
+  text: "Каталог товаров 🧑🏻‍💻"
   columns: 3
   row_width: 30
   pin: true

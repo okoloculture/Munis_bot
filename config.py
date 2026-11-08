@@ -71,6 +71,9 @@ class Config:
     proxy: str | None
     # Посты категорий таблицами Rich Messages вместо обычного текста.
     rich_messages: bool = False
+    # Тип техники в начало названия, у макбуков код в конец (см. names.py).
+    # Действует только в rich-формате: текстовые посты переносят строки дословно.
+    tidy_names: bool = False
 
 
 def _require(raw: dict, key: str) -> str:
@@ -243,4 +246,5 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
         excel_button_style=excel_style,
         proxy=os.environ.get("TG_PROXY") or os.environ.get("T_ME_PROXY") or None,
         rich_messages=message_format == "rich",
+        tidy_names=bool(raw.get("tidy_names", False)),
     )

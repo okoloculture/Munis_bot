@@ -109,7 +109,9 @@ def _footer(dropped: int) -> str:
 
 def _build(cfg: Config, title: str, lines: list[str], slots: int) -> list[str]:
     if cfg.rich_messages:
-        return build_rich_messages(title, lines, slots, cfg.tiers, cfg.round_to_nearest)
+        return build_rich_messages(
+            title, lines, slots, cfg.tiers, cfg.round_to_nearest, tidy=cfg.tidy_names,
+        )
     return build_messages(
         title, lines, slots, cfg.tiers, cfg.round_to_nearest, price_format=cfg.price_format,
     )
