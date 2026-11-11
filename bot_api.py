@@ -90,11 +90,9 @@ class BotApi:
         self,
         method: str,
         fields: dict[str, str],
-        file_field: str,
-        filename: str,
-        payload: bytes,
+        files: dict[str, tuple[str, bytes]],
     ) -> dict | None:
-        """Вызвать метод API с multipart-загрузкой файла.
+        """Вызвать метод API с multipart-загрузкой файлов {поле: (имя, байты)}.
 
         FormData одноразова, поэтому тело собирается заново на каждой попытке.
         """
@@ -104,10 +102,11 @@ class BotApi:
             form = aiohttp.FormData()
             for key, value in fields.items():
                 form.add_field(key, value)
-            form.add_field(
-                file_field, payload, filename=filename,
-                content_type="application/octet-stream",
-            )
+            for field_name, (filename, payload) in files.items():
+                form.add_field(
+                    field_name, payload, filename=filename,
+                    content_type="application/octet-stream",
+                )
 
             try:
                 async with self._session.post(
@@ -120,6 +119,8 @@ class BotApi:
 
                 if "message is not modified" in result.get("description", ""):
                     return NOT_MODIFIED
+                if "message to edit not found" in result.get("description", ""):
+                    return MESSAGE_GONE
 
                 if result.get("error_code") == 429:
                     retry_after = int(result.get("parameters", {}).get("retry_after", 1))
@@ -160,7 +161,7 @@ class BotApi:
         }
         if caption:
             fields["caption"] = caption
-        return await self._upload("sendDocument", fields, "document", filename, payload)
+        return await self._upload("sendDocument", fields, {"document": (filename, payload)})
 
     async def edit_message_document(
         self,
@@ -181,7 +182,7 @@ class BotApi:
             "message_id": str(message_id),
             "media": json.dumps(media, ensure_ascii=False),
         }
-        return await self._upload("editMessageMedia", fields, "upload", filename, payload)
+        return await self._upload("editMessageMedia", fields, {"upload": (filename, payload)})
 
     async def edit_message_text(
         self,
@@ -221,6 +222,26 @@ class BotApi:
             payload["reply_markup"] = reply_markup
         return await self.call("sendMessage", payload)
 
+    async def _rich(self, method: str, payload: dict, html_text: str, photos: dict[str, bytes] | None) -> dict | None:
+        """Вызвать rich-метод; фото грузятся файлами и подставляются по tg://photo?id=.
+
+        Ссылку на фото Telegram принимать отказывается (проверено: и <img src=https…>,
+        и media по URL падают), поэтому только загрузка multipart через attach://.
+        """
+        rich: dict = {"html": html_text}
+        if not photos:
+            return await self.call(method, {**payload, "rich_message": rich})
+        rich["media"] = [
+            {"id": photo_id, "media": {"type": "photo", "media": f"attach://{photo_id}"}}
+            for photo_id in photos
+        ]
+        fields = {
+            key: value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
+            for key, value in {**payload, "rich_message": rich}.items()
+        }
+        files = {photo_id: (f"{photo_id}.jpg", data) for photo_id, data in photos.items()}
+        return await self._upload(method, fields, files)
+
     async def send_rich_message(
         self,
         chat_id: str,
@@ -228,16 +249,13 @@ class BotApi:
         *,
         disable_notification: bool = True,
         reply_markup: dict | None = None,
+        photos: dict[str, bytes] | None = None,
     ) -> dict | None:
-        """Отправить rich-сообщение (таблицы, заголовки); разметка — HTML."""
-        payload = {
-            "chat_id": chat_id,
-            "rich_message": {"html": html_text},
-            "disable_notification": disable_notification,
-        }
+        """Отправить rich-сообщение (таблицы, заголовки, фото); разметка — HTML."""
+        payload: dict = {"chat_id": chat_id, "disable_notification": disable_notification}
         if reply_markup is not None:
             payload["reply_markup"] = reply_markup
-        return await self.call("sendRichMessage", payload)
+        return await self._rich("sendRichMessage", payload, html_text, photos)
 
     async def edit_rich_message(
         self,
@@ -246,20 +264,17 @@ class BotApi:
         html_text: str,
         *,
         reply_markup: dict | None = None,
+        photos: dict[str, bytes] | None = None,
     ) -> dict | None:
         """Заменить содержимое сообщения rich-разметкой.
 
         Проверено на живом канале: так правятся и rich-, и обычные сообщения —
         обычное при этом становится rich.
         """
-        payload = {
-            "chat_id": chat_id,
-            "message_id": message_id,
-            "rich_message": {"html": html_text},
-        }
+        payload: dict = {"chat_id": chat_id, "message_id": message_id}
         if reply_markup is not None:
             payload["reply_markup"] = reply_markup
-        return await self.call("editMessageText", payload)
+        return await self._rich("editMessageText", payload, html_text, photos)
 
     async def delete_message(self, chat_id: str, message_id: int) -> dict | None:
         return await self.call("deleteMessage", {

@@ -19,6 +19,7 @@ from nav import (
     validate_style,
 )
 from renderer import DEFAULT_PRICE_FORMAT, PriceFormatError, validate_price_format
+from intro import IntroConfigError, IntroPost, parse_intro_posts
 from splitter import CategorySplit, SplitConfigError, parse_splits
 
 DEFAULT_CONFIG_PATH = Path("config.yaml")
@@ -75,8 +76,8 @@ class Config:
     # Тип техники в начало названия, у макбуков код в конец (см. names.py).
     # Действует только в rich-формате: текстовые посты переносят строки дословно.
     tidy_names: bool = False
-    # Кнопки-ссылки над категориями в навигации: (подпись, url), по одной в ряд.
-    nav_links: tuple[tuple[str, str], ...] = ()
+    # Вводные посты в начале канала, их кнопки идут над категориями (см. intro.py).
+    intro_posts: tuple[IntroPost, ...] = ()
     # Категории опта, которые канал публикует сериями (см. splitter.py).
     splits: tuple[CategorySplit, ...] = ()
 
@@ -130,22 +131,6 @@ def _parse_order_button(raw: dict) -> OrderButton | None:
     except ButtonStyleError as exc:
         raise ConfigError(f"order_button: {exc}") from exc
     return OrderButton(text=text.strip(), url=url.strip(), style=style)
-
-
-def _parse_nav_links(nav_raw: dict) -> tuple[tuple[str, str], ...]:
-    value = nav_raw.get("links") or []
-    if not isinstance(value, list):
-        raise ConfigError("'nav.links' должен быть списком {text, url}")
-    links = []
-    for item in value:
-        text = item.get("text") if isinstance(item, dict) else None
-        url = item.get("url") if isinstance(item, dict) else None
-        if not isinstance(text, str) or not text.strip():
-            raise ConfigError("У каждой ссылки в 'nav.links' нужен непустой 'text'")
-        if not isinstance(url, str) or not url.startswith(("https://", "http://", "tg://")):
-            raise ConfigError(f"'nav.links.{text}': url должен быть ссылкой https:// или tg://")
-        links.append((text.strip(), url.strip()))
-    return tuple(links)
 
 
 def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True) -> Config:
@@ -234,7 +219,8 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
 
     try:
         splits = parse_splits(raw.get("split_categories"))
-    except SplitConfigError as exc:
+        intro_posts = parse_intro_posts(raw.get("intro_posts"))
+    except (SplitConfigError, IntroConfigError) as exc:
         raise ConfigError(str(exc)) from exc
 
     message_format = raw.get("message_format", "text")
@@ -273,6 +259,6 @@ def load_config(path: Path = DEFAULT_CONFIG_PATH, *, require_token: bool = True)
         proxy=os.environ.get("TG_PROXY") or os.environ.get("T_ME_PROXY") or None,
         rich_messages=message_format == "rich",
         tidy_names=bool(raw.get("tidy_names", False)),
-        nav_links=_parse_nav_links(nav_raw),
+        intro_posts=intro_posts,
         splits=splits,
     )

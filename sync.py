@@ -13,6 +13,7 @@ from bot_api import MESSAGE_GONE, NOT_MODIFIED, BotApi
 from catalog import Category, build_categories, normalize_key
 from config import Config
 from excel import build_caption, build_filename, build_workbook, collect_rows, rows_hash
+from intro import IntroPost, load_intro
 from nav import build_keyboard, make_button, message_link, render_text
 from renderer import TELEGRAM_MAX_LEN, build_messages, count_price_lines
 from rich_renderer import build_rich_messages
@@ -158,6 +159,7 @@ async def place_message(
     reply_markup: dict | None,
     below: tuple[str, ...],
     rich: bool = False,
+    photos: dict[str, bytes] | None = None,
 ) -> int | None:
     """Поставить новое сообщение выше служебных постов канала. Вернуть его message_id.
 
@@ -168,10 +170,22 @@ async def place_message(
     и в конец канала в итоге уходит только навигация.
 
     rich=True — text это HTML rich-сообщения; обычный служебный пост
-    правкой превращается в rich, это проверено на живом канале.
+    правкой превращается в rich, это проверено на живом канале. photos —
+    фото rich-сообщения, загружаются файлами.
     """
-    edit = api.edit_rich_message if rich else api.edit_message_text
-    send = api.send_rich_message if rich else api.send_message
+    if rich:
+        async def edit(chat_id, message_id, html_text, *, reply_markup):
+            return await api.edit_rich_message(
+                chat_id, message_id, html_text, reply_markup=reply_markup, photos=photos,
+            )
+
+        async def send(chat_id, html_text, *, disable_notification, reply_markup):
+            return await api.send_rich_message(
+                chat_id, html_text, disable_notification=disable_notification,
+                reply_markup=reply_markup, photos=photos,
+            )
+    else:
+        edit, send = api.edit_message_text, api.send_message
 
     for kind in below:
         message_id = getattr(state, f"{kind}_message_id")
@@ -196,6 +210,45 @@ async def place_message(
         reply_markup=reply_markup,
     )
     return int(result["message_id"]) if result is not None else None
+
+
+async def publish_intro(api: BotApi, cfg: Config, post: IntroPost, state: State) -> bool:
+    """Создать или обновить вводный пост. True, если что-то изменилось."""
+    html_text, photos, new_hash = load_intro(post)
+    slot = state.slots.setdefault(post.key, CategorySlot(title=post.title))
+    slot.title = post.title
+    if slot.message_ids and slot.content_hash == new_hash:
+        log.info("Вводный пост '%s' без изменений", post.title)
+        return False
+
+    if slot.message_ids:
+        message_id = slot.message_ids[0]
+        result = await api.edit_rich_message(
+            cfg.target_chat_id, message_id, html_text, photos=photos,
+        )
+        if result is MESSAGE_GONE:
+            log.warning("Вводный пост '%s' (message_id=%d) удалён из канала — создаю заново",
+                        post.title, message_id)
+            slot.message_ids = []
+            return await publish_intro(api, cfg, post, state) or True
+        if result is None:
+            log.warning("Не удалось обновить вводный пост '%s' (message_id=%d)", post.title, message_id)
+            return False
+        log.info("Вводный пост '%s' обновлён (message_id=%d)", post.title, message_id)
+    else:
+        message_id = await place_message(
+            api, cfg, state, html_text, reply_markup=None, below=("info", "nav"),
+            rich=True, photos=photos,
+        )
+        if message_id is None:
+            log.warning("Не удалось создать вводный пост '%s'", post.title)
+            return False
+        slot.message_ids = [message_id]
+        log.info("Вводный пост '%s' создан (message_id=%d)", post.title, message_id)
+
+    slot.content_hash = new_hash
+    await asyncio.sleep(CREATE_DELAY_SECONDS)
+    return True
 
 
 async def publish_category(
@@ -514,7 +567,12 @@ async def publish_nav(api: BotApi, cfg: Config, state: State) -> bool:
             cfg.excel_button_style,
         )])
 
-    top = [[make_button(text, url)] for text, url in cfg.nav_links]
+    # Вводные посты — над категориями, каждый своей кнопкой во весь ряд.
+    top = [
+        [make_button(post.title, message_link(cfg.target_chat_id, cfg.target_channel, slot.message_ids[0]))]
+        for post in cfg.intro_posts
+        if (slot := state.slots.get(post.key)) and slot.message_ids
+    ]
     keyboard = build_keyboard(
         entries, cfg.nav_columns, extra, cfg.nav_button_style, cfg.nav_row_width,
         top_rows=top,
@@ -588,6 +646,14 @@ async def sync_once(
         log.warning("Нет в источнике (пропускаю): %s", ", ".join(missing))
 
     todo = [key for key in keys if key in categories]
+    # Вводные посты идут первыми: при создании канала они займут его начало.
+    for post in cfg.intro_posts:
+        try:
+            if await publish_intro(api, cfg, post, state):
+                save_state(state, state_path)
+        except Exception:
+            log.exception("Сбой на вводном посте '%s'", post.title)
+
     log.info("Синхронизирую %d категорий", len(todo))
 
     for key in todo:

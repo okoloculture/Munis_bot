@@ -136,8 +136,10 @@ async def run_relayout(cfg: Config, state_path: Path, reuse_ids: list[int]) -> b
         return False
 
     state = load_state(state_path)
-    keys = planned_keys(cfg, state)
+    # Вводные посты — в самое начало канала, за ними категории в порядке конфига.
+    keys = [post.key for post in cfg.intro_posts] + planned_keys(cfg, state)
     titles = {normalize_key(name): name for name in cfg.categories}
+    titles.update({post.key: post.title for post in cfg.intro_posts})
     result = relayout(state, keys, titles, reuse_ids=reuse_ids)
 
     for key in keys:

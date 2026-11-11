@@ -400,13 +400,13 @@ class RichApi(GoneApi):
         self.rich_edited: list[int] = []
         self.rich_sent: list[int] = []
 
-    async def edit_rich_message(self, chat, mid, html, reply_markup=None):
+    async def edit_rich_message(self, chat, mid, html, reply_markup=None, photos=None):
         if mid in self.gone:
             return MESSAGE_GONE
         self.rich_edited.append(mid)
         return {"message_id": mid}
 
-    async def send_rich_message(self, chat, html, disable_notification=True, reply_markup=None):
+    async def send_rich_message(self, chat, html, disable_notification=True, reply_markup=None, photos=None):
         mid = self.next_id
         self.next_id += 1
         self.rich_sent.append(mid)

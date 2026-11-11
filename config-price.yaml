@@ -8,6 +8,13 @@ bot_token_env: BOT_TOKEN
 target_chat_id: "-1004374090427"
 target_channel: null
 
+# Вводные посты в самом начале канала — перенесены из прежнего канала клиента
+# (t.me/DEVICE_SHOP_PRO/6, 8, 9). Кнопки на них идут в навигации над категориями.
+intro_posts:
+  - {title: "Welcome 🙌", html: "intro/welcome.html", photo: "intro/welcome.jpg"}
+  - {title: "ЗНАКОМСТВО ✨", html: "intro/znakomstvo.html", photo: "intro/znakomstvo.jpg"}
+  - {title: "Как оформить заказ 🧐", html: "intro/order.html", photo: "intro/order.jpg"}
+
 # Посты категорий — таблицами Rich Messages (Bot API 10.1+): одна категория,
 # один пост, шапка «Категория | Цена». Обычный текст — message_format: text.
 message_format: rich
@@ -92,11 +99,6 @@ disable_notification: true
 nav:
   enabled: true
   text: "🛍️ КАТАЛОГ ТОВАРОВ 🛍️"
-  # Кнопки над категориями — посты из прежнего канала клиента, по одной в ряд
-  links:
-    - {text: "Welcome 🙌", url: "https://t.me/DEVICE_SHOP_PRO/6"}
-    - {text: "ЗНАКОМСТВО ✨", url: "https://t.me/DEVICE_SHOP_PRO/8"}
-    - {text: "Как оформить заказ 🧐", url: "https://t.me/DEVICE_SHOP_PRO/9"}
   columns: 3
   row_width: 30
   pin: true
