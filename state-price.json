@@ -19,14 +19,14 @@
       "message_ids": [
         5
       ],
-      "hash": "7ba2c487d161724e4cbc1da0ca7b8878"
+      "hash": "8cc2a0122e939827f175fd5a4af45e3e"
     },
     "huawei": {
       "title": "Huawei",
       "message_ids": [
         6
       ],
-      "hash": "582f0e2453db032bc7a5518b64669eaf"
+      "hash": "7764034c5e9dc3cf1f8377586777a126"
     },
     "oneplus": {
       "title": "OnePlus",
@@ -40,21 +40,21 @@
       "message_ids": [
         8
       ],
-      "hash": "0f696402b9cf0b6b9a0268a41d79fa39"
+      "hash": "3229a2daeb65cb6ee9b6c925e7c02cc0"
     },
     "xiaomi": {
       "title": "Xiaomi",
       "message_ids": [
         9
       ],
-      "hash": "6e025c1c57c615d1703073b507efee2f"
+      "hash": "66c00f7427d9e49d1e2de3843d55b579"
     },
     "samsung": {
       "title": "Samsung",
       "message_ids": [
         10
       ],
-      "hash": "70ae73d66f880569b00ae52a20f7f85e"
+      "hash": "6fbd13179c0c7a126cdad62d77b05e2e"
     },
     "airpods": {
       "title": "AirPods",
@@ -82,7 +82,7 @@
       "message_ids": [
         18
       ],
-      "hash": "13a8cac69732e47f0e3ba53b2a79ffcb"
+      "hash": "364374f679820894c839fd6345941832"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
@@ -117,7 +117,7 @@
       "message_ids": [
         23
       ],
-      "hash": "442623aec98d1e9ca08e3c9cbfee69c3"
+      "hash": "df01bf7db0b784d639d20cf59c860ac1"
     },
     "iphone 17 pro": {
       "title": "iPhone 17 Pro",
@@ -138,14 +138,14 @@
       "message_ids": [
         26
       ],
-      "hash": "e4d0ca5bd3405d37aa2c38508beb3b3b"
+      "hash": "ff1425d3277e71ea35ee4b5966025ccd"
     },
     "iphone 18 pro max": {
       "title": "iPhone 18 Pro Max",
       "message_ids": [
         27
       ],
-      "hash": "87bd536e357d60d5deeeb08fd7317685"
+      "hash": "712ec7ffa637b1a17d74518f5cdeb2be"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -173,7 +173,7 @@
       "message_ids": [
         31
       ],
-      "hash": "3f4d26d5bce64d668bc814efa0d659b4"
+      "hash": "dee3977fa19852a827290f94275faf5d"
     },
     "macbook pro": {
       "title": "MacBook Pro",
