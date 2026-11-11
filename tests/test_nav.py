@@ -109,3 +109,10 @@ def test_pack_rows_rejects_bad_limits():
         pack_rows(["a"], columns=0, row_width=10)
     with pytest.raises(ValueError):
         pack_rows(["a"], columns=3, row_width=0)
+
+
+def test_build_keyboard_puts_link_rows_above_categories():
+    top = [[{"text": "Welcome", "url": "https://t.me/x/6"}], [{"text": "Как заказать", "url": "https://t.me/x/9"}]]
+    keyboard = build_keyboard([("Google", "https://t.me/c/1/4")], 3, top_rows=top)
+    rows = keyboard["inline_keyboard"]
+    assert [row[0]["text"] for row in rows] == ["Welcome", "Как заказать", "Google"]

@@ -10,7 +10,9 @@ from pathlib import Path
 import aiohttp
 
 from bot_api import BotApi
+from catalog import normalize_key
 from config import Config, ConfigError, load_config
+from relayout import relayout
 from state import DEFAULT_STATE_PATH, load_state, save_state
 from sync import (
     build_excel,
@@ -123,6 +125,49 @@ async def run_sync(cfg: Config, state_path: Path, *, once: bool) -> None:
                 log.exception("Сбой цикла синхронизации")
 
 
+async def run_relayout(cfg: Config, state_path: Path, reuse_ids: list[int]) -> bool:
+    """Разложить категории по постам канала в порядке конфига; канал не трогать.
+
+    Посты перепишет следующий прогон --once. Здесь только новая карта в state
+    и открепление бывшей навигации, если она стала прайсом.
+    """
+    if not cfg.rich_messages:
+        log.error("--relayout поддержан только для message_format: rich (пост на категорию)")
+        return False
+
+    state = load_state(state_path)
+    keys = planned_keys(cfg, state)
+    titles = {normalize_key(name): name for name in cfg.categories}
+    result = relayout(state, keys, titles, reuse_ids=reuse_ids)
+
+    for key in keys:
+        slot = result.state.slots[key]
+        log.info("  %-28s -> %s", slot.title, slot.message_ids or "новый пост в конце")
+    log.info(
+        "Информационное -> %s, навигация -> %s",
+        result.state.info_message_id or "заново", result.state.nav_message_id or "заново в конце",
+    )
+    if result.leftover_ids:
+        log.warning("Посты без категории, останутся как есть: %s", result.leftover_ids)
+
+    if result.unpin_message_id:
+        async with _make_session(cfg) as session:
+            api = BotApi(session, cfg.bot_token)
+            if await api.unpin_message(cfg.target_chat_id, result.unpin_message_id) is None:
+                log.warning("Не удалось открепить бывшую навигацию %s", result.unpin_message_id)
+
+    save_state(result.state, state_path)
+    log.info("Карта сохранена в %s; посты перепишет следующий прогон --once", state_path)
+    return True
+
+
+def _parse_ids(value: str) -> list[int]:
+    try:
+        return [int(item) for item in value.split(",") if item.strip()]
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError(f"ожидался список message_id через запятую: {value}") from exc
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Зеркалирование прайсов с наценкой")
     mode = parser.add_mutually_exclusive_group()
@@ -130,6 +175,14 @@ def parse_args() -> argparse.Namespace:
     mode.add_argument("--dry-run", action="store_true", help="собрать сообщения в файлы без публикации")
     mode.add_argument("--once", action="store_true", help="один прогон синхронизации и выход")
     mode.add_argument("--excel", action="store_true", help="собрать только файл .xlsx, не трогая канал")
+    mode.add_argument(
+        "--relayout", action="store_true",
+        help="разложить категории по постам канала в порядке конфига (после смены списка категорий)",
+    )
+    parser.add_argument(
+        "--reuse-ids", type=_parse_ids, default=[],
+        help="для --relayout: живые посты выбывших категорий, которые можно занять",
+    )
     parser.add_argument("--config", type=Path, default=Path("config.yaml"))
     parser.add_argument("--state", type=Path, default=DEFAULT_STATE_PATH)
     parser.add_argument("--out", type=Path, default=Path("_dryrun"), help="каталог для --dry-run")
@@ -158,6 +211,8 @@ def main() -> int:
         asyncio.run(run_dry_run(cfg, args.state, args.out))
     elif args.excel:
         asyncio.run(run_excel(cfg, args.state))
+    elif args.relayout:
+        return 0 if asyncio.run(run_relayout(cfg, args.state, args.reuse_ids)) else 1
     else:
         asyncio.run(run_sync(cfg, args.state, once=args.once))
     return 0

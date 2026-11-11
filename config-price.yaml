@@ -42,7 +42,12 @@ categories:
   - OnePlus
   - Realme
   - Xiaomi
-  - Samsung
+  - Samsung Galaxy S
+  - Samsung Galaxy A
+  - Samsung Galaxy Z
+  - Samsung Galaxy Tab
+  - Samsung Galaxy Watch
+  - Samsung Galaxy Buds
   - AirPods
   - Watch SE \ S10 \ S11 \ S12
   - Ultra Watch
@@ -62,6 +67,17 @@ categories:
   - MacBook Neo \ Air
   - MacBook Pro
 
+# Samsung в опте один большой блок, а покупатель ищет по сериям, как у Apple.
+# Строка уходит в первую серию, чей шаблон совпал с её началом (без учёта регистра).
+split_categories:
+  Samsung:
+    - {title: "Samsung Galaxy S", pattern: "Galaxy S\\d"}
+    - {title: "Samsung Galaxy A", pattern: "Galaxy A\\d"}
+    - {title: "Samsung Galaxy Z", pattern: "Galaxy Z"}
+    - {title: "Samsung Galaxy Tab", pattern: "Galaxy Tab"}
+    - {title: "Samsung Galaxy Watch", pattern: "Galaxy (Watch|Ring)"}
+    - {title: "Samsung Galaxy Buds", pattern: "Galaxy Buds"}
+
 # iPhone 15 и старше клиенту не нужны
 deny_categories:
   - iPhone (ASIS)
@@ -75,7 +91,12 @@ disable_notification: true
 
 nav:
   enabled: true
-  text: "Каталог товаров 🧑🏻‍💻"
+  text: "🛍️ КАТАЛОГ ТОВАРОВ 🛍️"
+  # Кнопки над категориями — посты из прежнего канала клиента, по одной в ряд
+  links:
+    - {text: "Welcome 🙌", url: "https://t.me/DEVICE_SHOP_PRO/6"}
+    - {text: "ЗНАКОМСТВО ✨", url: "https://t.me/DEVICE_SHOP_PRO/8"}
+    - {text: "Как оформить заказ 🧐", url: "https://t.me/DEVICE_SHOP_PRO/9"}
   columns: 3
   row_width: 30
   pin: true

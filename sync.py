@@ -16,6 +16,7 @@ from excel import build_caption, build_filename, build_workbook, collect_rows, r
 from nav import build_keyboard, make_button, message_link, render_text
 from renderer import TELEGRAM_MAX_LEN, build_messages, count_price_lines
 from rich_renderer import build_rich_messages
+from splitter import apply_splits
 from state import CategorySlot, State, save_state
 from tme_scraper import fetch_messages
 
@@ -61,14 +62,14 @@ async def discover_slots(session: aiohttp.ClientSession, cfg: Config) -> dict[st
 async def fetch_source_categories(
     session: aiohttp.ClientSession, cfg: Config,
 ) -> dict[str, Category]:
-    """Прочитать актуальный каталог канала-источника."""
+    """Прочитать актуальный каталог канала-источника и разбить категории по сериям."""
     messages = await fetch_messages(
         session,
         cfg.source_channel,
         max_pages=cfg.max_scan_pages,
         http_proxy=_http_proxy(cfg),
     )
-    return build_categories(messages)
+    return apply_splits(build_categories(messages), cfg.splits)
 
 
 def is_allowed(key: str, cfg: Config) -> bool:
@@ -513,8 +514,10 @@ async def publish_nav(api: BotApi, cfg: Config, state: State) -> bool:
             cfg.excel_button_style,
         )])
 
+    top = [[make_button(text, url)] for text, url in cfg.nav_links]
     keyboard = build_keyboard(
         entries, cfg.nav_columns, extra, cfg.nav_button_style, cfg.nav_row_width,
+        top_rows=top,
     )
     text = render_text(cfg.nav_text)
     new_hash = content_hash([text, repr(keyboard)])

@@ -92,13 +92,15 @@ def build_keyboard(
     extra_rows: Sequence[Sequence[dict]] = (),
     style: str = DEFAULT_BUTTON_STYLE,
     row_width: int = DEFAULT_ROW_WIDTH,
+    top_rows: Sequence[Sequence[dict]] = (),
 ) -> dict:
-    """Собрать inline-клавиатуру: категории рядами + дополнительные ряды снизу."""
+    """Собрать inline-клавиатуру: ряды сверху, категории рядами, ряды снизу."""
     labels = [title for title, _ in entries]
-    rows = [
+    rows = [list(top) for top in top_rows if top]
+    rows.extend(
         [make_button(*entries[index], style) for index in indexes]
         for indexes in pack_rows(labels, columns, row_width)
-    ]
+    )
     rows.extend([list(extra) for extra in extra_rows if extra])
     return {"inline_keyboard": rows}
 
