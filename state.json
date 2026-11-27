@@ -52,7 +52,7 @@
         10,
         11
       ],
-      "hash": "ed59f8c25dd39238eda784d8064dbe7c"
+      "hash": "6e4f5c449d79301c3a967223dbe4793e"
     },
     "samsung": {
       "title": "Samsung",
@@ -130,14 +130,14 @@
       "message_ids": [
         31
       ],
-      "hash": "be6035819ab806adba8d1003cfaab1d6"
+      "hash": "740fa6ad0ec0df2508271718d95386d8"
     },
     "iphone 16 pro max": {
       "title": "iPhone 16 Pro Max",
       "message_ids": [
         32
       ],
-      "hash": "f04ec02d9da8a8ca03470369985727cc"
+      "hash": "757f385a59adc888478f1c5c6f02c900"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
@@ -203,7 +203,7 @@
       "message_ids": [
         44
       ],
-      "hash": "e581257485c4e787380dbd5d57d580e8"
+      "hash": "464b7cd2398e68fa27a8e99b5c88771d"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
@@ -225,7 +225,7 @@
       "message_ids": [
         70
       ],
-      "hash": "1464c5ba58c49acb0bc843b7cef37fdd"
+      "hash": "0d32c9a717fb8fa1890d2f78a498aeb3"
     }
   }
 }

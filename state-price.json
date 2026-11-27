@@ -68,7 +68,7 @@
       "message_ids": [
         12
       ],
-      "hash": "8497f1bd6e2918cbb774047804c9ef89"
+      "hash": "bb20bfed69e78666668badfa8a0987f6"
     },
     "samsung galaxy s": {
       "title": "Samsung Galaxy S",
@@ -152,14 +152,14 @@
       "message_ids": [
         24
       ],
-      "hash": "5972de5612d6b9d5f70bb6b97accbbef"
+      "hash": "8e474ae522380f9a64bcbdccd4f1dc55"
     },
     "iphone 16 pro max": {
       "title": "iPhone 16 Pro Max",
       "message_ids": [
         25
       ],
-      "hash": "00fbe742f5ca3dfc447d0327bde71e95"
+      "hash": "53742ecc1d5fe862adf57a7995da722a"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
@@ -201,7 +201,7 @@
       "message_ids": [
         31
       ],
-      "hash": "c9a46a40b690f195a0ca6927d3083b4e"
+      "hash": "8e5a63724c1de4c652651a7c8412e66a"
     },
     "ipad air": {
       "title": "iPad Air",
@@ -236,7 +236,7 @@
       "message_ids": [
         40
       ],
-      "hash": "212ec5a737b9305a7b7024031cac3618"
+      "hash": "b4f6f5e26f432aa46febe19e52b0c174"
     }
   }
 }
