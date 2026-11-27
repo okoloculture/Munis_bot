@@ -68,14 +68,14 @@
       "message_ids": [
         12
       ],
-      "hash": "1ac5cbfefff4f9afc8e088451adeb50a"
+      "hash": "60a02308f75a4cd1431a200d40cc7d1d"
     },
     "samsung galaxy s": {
       "title": "Samsung Galaxy S",
       "message_ids": [
         13
       ],
-      "hash": "c27c3b1ddfd49d90d3e162597cd56f47"
+      "hash": "a8cae80f9fb1f5029fad47d73c28bc8d"
     },
     "samsung galaxy a": {
       "title": "Samsung Galaxy A",
@@ -89,7 +89,7 @@
       "message_ids": [
         15
       ],
-      "hash": "9d45518b23e049d3f330e2d0521e8bbb"
+      "hash": "efa05f7f7a619f2dd13e15d92b0643a6"
     },
     "samsung galaxy tab": {
       "title": "Samsung Galaxy Tab",
@@ -117,14 +117,14 @@
       "message_ids": [
         19
       ],
-      "hash": "ccad9c7340cee91d8ed52220ac422e84"
+      "hash": "c217032fdecef9cfb3c1892934cc6a8e"
     },
     "watch se / s10 / s11 / s12": {
       "title": "Watch SE \\ S10 \\ S11 \\ S12",
       "message_ids": [
         20
       ],
-      "hash": "650720e167c2b7b76b12b21e889dd12f"
+      "hash": "edf2135624ef591b46ff2e585729c578"
     },
     "ultra watch": {
       "title": "Ultra Watch",
@@ -138,7 +138,7 @@
       "message_ids": [
         22
       ],
-      "hash": "c3001fab2d3097ce984da28ed2aa6dd3"
+      "hash": "8ad193804e8f9287c1bb47cb445afbce"
     },
     "iphone 16 plus": {
       "title": "iPhone 16 Plus",
@@ -159,14 +159,14 @@
       "message_ids": [
         25
       ],
-      "hash": "96fb10970e8d1a71b0e38297db5b3841"
+      "hash": "cac25a1d151f07ba64690c9e6957da04"
     },
     "iphone 17e / 17": {
       "title": "iPhone 17e \\ 17",
       "message_ids": [
         26
       ],
-      "hash": "17cfc035d506ed2e9624bb9e7af0908f"
+      "hash": "68daf52b9b3ae8bee1a1b732fff744cd"
     },
     "iphone 17 air": {
       "title": "iPhone 17 Air",
@@ -201,14 +201,14 @@
       "message_ids": [
         31
       ],
-      "hash": "2c0fe1aaef4465f777097b86dc9d6a8f"
+      "hash": "6a81b2047d5ff0cebdf9cbde46a4c15d"
     },
     "ipad air": {
       "title": "iPad Air",
       "message_ids": [
         32
       ],
-      "hash": "6abfa68cde812a1e2f8e5dc4a5c4b34d"
+      "hash": "939f0b4773212e2dbf46e8c7cf8b6938"
     },
     "ipad pro": {
       "title": "iPad Pro",
